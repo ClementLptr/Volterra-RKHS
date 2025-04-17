@@ -86,9 +86,9 @@ where \( n \) is the order of the Volterra series, which naturally encodes highe
 
 For our one-stream (RGB) VNN, we focus on a second-order Volterra series, rewritten using the following RKHS projection:
 
-$$
-g\left(\mathbf{X}_{[t-L+1:t, s_1-p_1:s_1+p_1, s_2-p_2:s_2+p_2]}\right) = \sum_{i=1}^{P} \alpha_i \langle \varphi^{(2)}\left( \mathbf{X}_{[t-L+1:t, s_1-p_1:s_1+p_1, s_2-p_2:s_2+p_2]} \right), \varphi^{(2)}\left( \mathbf{X}_i \right)\rangle
-$$
+<div align="center">
+  <img src="figures/rkhs_formule.png" alt="RKHS Formula">
+</div>
 
 This formulation allows us to capture complex nonlinear interactions in RGB data while leveraging the computational efficiency of kernel methods, enabling a direct comparison with the baseline VNN model.
 
