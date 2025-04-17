@@ -1,94 +1,98 @@
-# **Volterra Neural Networks (VNNs) with RKHS Projections**
+# Volterra Neural Networks (VNNs) with RKHS Projections
 
 **Research Project – Mention MDS, CentraleSupélec (2024-2025)**
 
-This repository contains the research project conducted as part of the **MDS (Mathématiques, Données, Sciences)** program at CentraleSupélec. The project focuses on **reproducing and extending the results from the paper "Volterra Neural Networks (VNNs)"** (Roheda et al., JMLR 2024), which introduces **Volterra Neural Networks (VNNs)** as a framework for modeling nonlinear interactions in data, offering an alternative to traditional convolutional neural networks (CNNs) for tasks such as action recognition.
+This repository contains the research project conducted as part of the **MDS (Mathématiques, Données, Sciences)** program at CentraleSupélec. The project focuses on **reproducing and extending the results from the paper "Volterra Neural Networks (VNNs)"** ([Roheda et al., JMLR 2024](https://www.jmlr.org/papers/v25/21-1130.html)), which introduces **Volterra Neural Networks (VNNs)** as a framework for modeling nonlinear interactions in data, offering an alternative to traditional convolutional neural networks (CNNs) for tasks such as action recognition.
 
 We aim to **reproduce the original VNN results and enhance the model by implementing Reproducing Kernel Hilbert Space (RKHS) projections on a one-stream (RGB) VNN architecture**. This approach is compared to the baseline VNN model presented in the original paper to evaluate improvements in efficiency and performance.
 
----
+> **Note**: This README contains LaTeX equations for mathematical formulations. To view them correctly, use a Markdown viewer that supports MathJax (e.g., GitHub, VS Code with a LaTeX plugin, or Jupyter Notebook).
 
-## **Project Objectives**
+## Project Objectives
 
-1️⃣ **Reproduce the original VNN results** on action recognition datasets (e.g., HMDB-51, UCF-101) using the baseline model.\
-2️⃣ **Implement RKHS projections on a one-stream (RGB) VNN** to model nonlinear interactions more efficiently.\
-3️⃣ **Compare the RKHS-enhanced VNN** with the baseline VNN from Roheda et al. (JMLR 2024) to assess improvements in computational efficiency and generalization.
+1. **Reproduce the original VNN results** on action recognition datasets (e.g., HMDB-51, UCF-101) using the baseline model.
+2. **Implement RKHS projections on a one-stream (RGB) VNN** to model nonlinear interactions more efficiently.
+3. **Compare the RKHS-enhanced VNN** with the baseline VNN from Roheda et al. (JMLR 2024) to assess improvements in computational efficiency and generalization.
 
 We hypothesize that RKHS projections applied to a one-stream (RGB) VNN can **reduce the number of required parameters while preserving expressivity**, making the model more computationally efficient compared to the original VNN formulation.
 
----
+## Key Features
 
-## **Key Features**
+- **Implementation of Volterra Neural Networks**: Reproduction of the baseline model.
+- **RKHS-based Projections**: Alternative high-order interactions using kernel approximations for one-stream (RGB) inputs.
+- **One-Stream RGB Architecture**: Focused implementation for efficient action recognition.
+- **Efficient Training & Inference**: Precomputed features for reduced training time.
 
-✅ **Implementation of Volterra Neural Networks** – Reproduction of the baseline model.\
-✅ **RKHS-based Projections** – Alternative high-order interactions using kernel approximations for one-stream (RGB) inputs.\
-✅ **One-Stream RGB Architecture** – Focused implementation for efficient action recognition.\
-✅ **Efficient Training & Inference** – Precomputed features for reduced training time.
+## Getting Started
 
----
+### Prerequisites
 
-## **Getting Started**
-
-### **Prerequisites**
-
-Ensure you have **Python 3.x** and install dependencies using:
+Ensure you have **Python 3.x** installed and install dependencies using:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### **Training the Baseline VNN Model**
+### Training the Baseline VNN Model
 
-1️⃣ **Set Dataset Path** – Modify `mypath.py` with dataset locations.\
-2️⃣ **Choose Model Configuration** – Adjust hyperparameters in `train_VNN_fusion_highQ.py`.\
-3️⃣ **Run Training**
+1. **Set Dataset Path**: Modify `mypath.py` with dataset locations.
+2. **Choose Model Configuration**: Adjust hyperparameters in `train_VNN_fusion_highQ.py`.
+3. **Run Training**:
 
 ```bash
 python3 train_VNN_fusion_highQ.py
 ```
 
-4️⃣ **(Optional) Precompute Features** – Reduces training time by caching intermediate representations.
+4. **(Optional) Precompute Features**: Reduces training time by caching intermediate representations.
 
-### **Training the RKHS-Enhanced VNN Model**
+### Training the RKHS-Enhanced VNN Model
 
-The RKHS-based implementation for the one-stream (RGB) VNN is located in `networks/vnn_rkhs.py`. To train this model:\
-1️⃣ Configure `train_VNN_fusion_highQ.py` to use the RKHS model.\
-2️⃣ Run:
+The RKHS-based implementation for the one-stream (RGB) VNN is located in `networks/vnn_rkhs.py`. To train this model:
+
+1. Configure `train_VNN_fusion_highQ.py` to use the RKHS model.
+2. Run:
 
 ```bash
 python3 train_VNN_fusion_highQ.py --model vnn_rkhs
 ```
 
----
+## RKHS-Based Improvement Strategy
 
-## **RKHS-Based Improvement Strategy**
+The original Volterra Neural Networks (VNNs) model nonlinear interactions using **Volterra series expansions**, which can be computationally expensive for higher-order terms. Our approach focuses on a **one-stream (RGB) VNN architecture**, where we:
 
-The original Volterra Neural Networks (VNNs) model nonlinear interactions using **Volterra series expansions**, which can be computationally expensive for higher-order terms. Our approach focuses on a **one-stream (RGB) VNN architecture**, where we:\
-🔹 **Reformulate high-order interactions using RKHS projections** to reduce computational complexity.\
-🔹 **Use kernel approximations** to efficiently model nonlinear relationships in RGB data.\
-🔹 **Introduce functional regularization** to improve generalization.
+- **Reformulate high-order interactions using RKHS projections** to reduce computational complexity.
+- **Use kernel approximations** to efficiently model nonlinear relationships in RGB data.
+- **Introduce functional regularization** to improve generalization.
 
 By applying RKHS projections to a one-stream VNN, we aim to achieve comparable or better performance than the baseline VNN model from Roheda et al. (JMLR 2024) with lower computational cost. The RKHS-based implementation can be found in `networks/vnn_rkhs.py`.
 
----
-
-## **Mathematical Foundations of RKHS Approximation**
+## Mathematical Foundations of RKHS Approximation
 
 RKHS representations enable an implicit mapping of input data into a high-dimensional feature space where nonlinear relationships can be effectively modeled using linear methods. The connection between Volterra series and RKHS representations was formalized by Franz and Schölkopf (2006), who demonstrated that polynomial kernel regression provides a unifying framework for Wiener and Volterra theory.
 
-Specifically, given an input-output relationship expressed through a Volterra series expansion:\
-\[ \\sum\_{k=0}^{n} W^k(x) = \\eta^{(n)} \\varphi^{(n)}(x) \]\
-it is possible to approximate this expansion using an inhomogeneous polynomial kernel:\
-\[ k(x, y) = (\\langle x, y \\rangle + 1)^n \]\
-where ( n ) is the order of the Volterra series, which naturally encodes higher-order interactions (Franz and Schölkopf, 2006).
+Specifically, given an input-output relationship expressed through a Volterra series expansion:
 
-For our one-stream (RGB) VNN, we focus on a second-order Volterra series, rewritten using the following RKHS projection:\
-\[ g\\left(\\mathbf{X}*{\\begin{bmatrix} \\scriptsize t-L+1:t \\ \\scriptsize s_1-p_1:s_1+p_1 \\ \\scriptsize s_2-p_2:s_2+p_2 \\end{bmatrix}}\\right) = \\sum*{i=1}^{P} \\alpha_i \\left\\langle \\varphi^{(2)}\\left( \\mathbf{X}\_{\\begin{bmatrix} \\scriptsize t-L+1:t \\ \\scriptsize s_1-p_1:s_1+p_1 \\ \\scriptsize s_2-p_2:s_2+p_2 \\end{bmatrix} \\right), \\varphi^{(2)}\\left( \\mathbf{X}\_i \\right) \\right\\rangle \]\
+$$
+\sum_{k=0}^{n} W^k(x) = \eta^{(n)} \varphi^{(n)}(x)
+$$
+
+it is possible to approximate this expansion using an inhomogeneous polynomial kernel:
+
+$$
+k(x, y) = (\langle x, y \rangle + 1)^n
+$$
+
+where \( n \) is the order of the Volterra series, which naturally encodes higher-order interactions (Franz and Schölkopf, 2006).
+
+For our one-stream (RGB) VNN, we focus on a second-order Volterra series, rewritten using the following RKHS projection:
+
+$$
+g\left(\mathbf{X}_{\begin{bmatrix} t-L+1:t \\ s_1-p_1:s_1+p_1 \\ s_2-p_2:s_2+p_2 \end{bmatrix}}\right) = \sum_{i=1}^{P} \alpha_i \left\langle \varphi^{(2)}\left( \mathbf{X}_{\begin{bmatrix} t-L+1:t \\ s_1-p_1:s_1+p_1 \\ s_2-p_2:s_2+p_2 \end{bmatrix} \right), \varphi^{(2)}\left( \mathbf{X}_i \right) \right\rangle
+$$
+
 This formulation allows us to capture complex nonlinear interactions in RGB data while leveraging the computational efficiency of kernel methods, enabling a direct comparison with the baseline VNN model.
 
----
-
-## **Project Structure**
+## Project Structure
 
 ```
 volterra/
@@ -106,24 +110,18 @@ volterra/
 └── README.md              # Project documentation
 ```
 
----
+## Results & Findings
 
-## **Results & Findings**
-
-📊 **Performance Evaluation**\
+**Performance Evaluation**  
 We compare the **baseline VNN model** and the **RKHS-enhanced one-stream (RGB) VNN** across the HMDB51 datasets to evaluate improvements in accuracy and computational efficiency.
 
----
+## Future Work
 
-## **Future Work**
+- Exploring different kernel choices for RKHS embedding in the one-stream architecture.
+- Extending to **self-supervised learning** and **few-shot learning** for RGB inputs.
+- Investigating hybrid **VNN-CNN architectures** for large-scale applications.
 
-🚀 Exploring different kernel choices for RKHS embedding in the one-stream architecture.\
-🚀 Extending to **self-supervised learning** and **few-shot learning** for RGB inputs.\
-🚀 Investigating hybrid **VNN-CNN architectures** for large-scale applications.
-
----
-
-## **Citation**
+## Citation
 
 If you use our work, please cite the original paper:
 
@@ -150,17 +148,13 @@ Additionally, for the mathematical foundations of the RKHS approximation, please
 }
 ```
 
----
+## Contact
 
-## **Contact**
+For questions or feedback, feel free to reach out:  
+**Authors**: Clément Leprêtre & Salim Gazzeh  
+**Institution**: CentraleSupélec – Mention MDS  
+**Contact**: clement.lepretre@centralesupelec.fr / salim.gazzeh@centralesupelec.fr
 
-For questions or feedback, feel free to reach out:\
-👨‍💻 **Authors**: Clément Leprêtre & Salim Gazzeh\
-🏫 **Institution**: CentraleSupélec – Mention MDS\
-📩 **Contact**: clement.lepretre@centralesupelec.fr / salim.gazzeh@centralesupelec.fr
-
----
-
-## **Acknowledgements**
+## Acknowledgements
 
 We express our gratitude to **CentraleSupélec** and the **MDS faculty** for their support. Special thanks to our supervisors, **JC Pesquet** and **H. Krim**, for their guidance, and to our tutor, **A. Minasyan**, for their valuable feedback. We also acknowledge **Siddharth Roheda**, **Hamid Krim**, and **Bo Jiang** for their foundational work on Volterra Neural Networks, and **M. Franz** and **B. Schölkopf** for their contributions to the RKHS-Volterra connection.
