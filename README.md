@@ -1,67 +1,40 @@
-# **Volterra Neural Networks (VNNs) with RKHS Projections**  
-**Final Project - Deep Learning (MVA 2024)**  
+Volterra Neural Networks (VNNs) with RKHS Projections
+Research Project – Mention MDS, CentraleSupélec (2024-2025)  
+This repository contains the research project conducted as part of the MDS (Mathématiques, Données, Sciences) program at CentraleSupélec. The project focuses on reproducing and extending the results from the paper "Volterra Neural Networks (VNNs)" (Roheda et al., JMLR 2024), which introduces Volterra Neural Networks (VNNs) as a framework for modeling nonlinear interactions in data, offering an alternative to traditional convolutional neural networks (CNNs) for tasks such as action recognition.  
+We aim to reproduce the original VNN results and enhance the model by implementing Reproducing Kernel Hilbert Space (RKHS) projections on a one-stream (RGB) VNN architecture. This approach is compared to the baseline VNN model presented in the original paper to evaluate improvements in efficiency and performance.  
 
-This repository contains our final project for the Deep Learning course of the MVA program. The goal of this project is to **reproduce the results from the paper "Conquering the CNN Over-Parameterization Dilemma: A Volterra Filtering Approach for Action Recognition"** ([Roheda & Krim, AAAI 2020](https://ojs.aaai.org/index.php/AAAI/article/view/6870)), which introduces **Volterra Neural Networks (VNNs)** as an alternative to standard CNNs for action recognition.  
+Project Objectives
+1️⃣ Reproduce the original VNN results on action recognition datasets (e.g., HMDB-51, UCF-101) using the baseline model.2️⃣ Implement RKHS projections on a one-stream (RGB) VNN to model nonlinear interactions more efficiently.3️⃣ Compare the RKHS-enhanced VNN with the baseline VNN from Roheda et al. (JMLR 2024) to assess improvements in computational efficiency and generalization.  
+We hypothesize that RKHS projections applied to a one-stream (RGB) VNN can reduce the number of required parameters while preserving expressivity, making the model more computationally efficient compared to the original VNN formulation.  
 
-In addition to reproducing the original results, we aim to **improve the VNN model by leveraging Reproducing Kernel Hilbert Space (RKHS) projections**. The RKHS formulation allows us to:  
-✔️ Reduce the computational cost of high-order Volterra expansions.  
-✔️ Improve generalization through better function space regularization.  
-✔️ Maintain interpretability while increasing expressive power.  
+Key Features
+✅ Implementation of Volterra Neural Networks – Reproduction of the baseline model.✅ RKHS-based Projections – Alternative high-order interactions using kernel approximations for one-stream (RGB) inputs.✅ One-Stream RGB Architecture – Focused implementation for efficient action recognition.✅ Efficient Training & Inference – Precomputed features for reduced training time.  
 
----
-
-## **Project Objectives**  
-1️⃣ **Reproduce the original VNN results** on action recognition datasets (e.g., HMDB-51, UCF-101).  
-2️⃣ **Analyze the strengths and limitations** of the Volterra formulation.  
-3️⃣ **Propose an RKHS-based extension** to improve efficiency and generalization.  
-
-We hypothesize that RKHS projections can **reduce the number of required parameters while preserving expressivity**, making the model more computationally efficient compared to the original VNN formulation.  
-
----
-
-## **Key Features**  
-✅ **Implementation of Volterra Neural Networks** – Reproduction of the baseline model.  
-✅ **RKHS-based Projections** – Alternative high-order interactions using kernel approximations.  
-✅ **Flexible Model Configurations** – Support for RGB, optical flow, and multi-modal inputs.  
-✅ **Efficient Training & Inference** – Precomputed features for reduced training time.  
-
----
-
-## **Getting Started**  
-
-### **Prerequisites**  
-Ensure you have **Python 3.x** and install dependencies using:  
-
-```bash
+Getting Started
+Prerequisites
+Ensure you have Python 3.x and install dependencies using:  
 pip install -r requirements.txt
-```
 
-### **Training the Baseline VNN Model**  
-
-1️⃣ **Set Dataset Path** – Modify `mypath.py` with dataset locations.  
-2️⃣ **Choose Model Configuration** – Adjust hyperparameters in `train_VNN_fusion_highQ.py`.  
-3️⃣ **Run Training**  
-```bash
+Training the Baseline VNN Model
+1️⃣ Set Dataset Path – Modify mypath.py with dataset locations.2️⃣ Choose Model Configuration – Adjust hyperparameters in train_VNN_fusion_highQ.py.3️⃣ Run Training  
 python3 train_VNN_fusion_highQ.py
-```  
-4️⃣ **(Optional) Precompute Optical Flow** – Reduces training time by caching intermediate representations.  
 
----
+4️⃣ (Optional) Precompute Features – Reduces training time by caching intermediate representations.  
+Training the RKHS-Enhanced VNN Model
+The RKHS-based implementation for the one-stream (RGB) VNN is located in networks/vnn_rkhs.py. To train this model:1️⃣ Configure train_VNN_fusion_highQ.py to use the RKHS model.2️⃣ Run:  
+python3 train_VNN_fusion_highQ.py --model vnn_rkhs
 
-## **RKHS-Based Improvement Strategy**  
-The original Volterra Neural Networks (VNNs) model nonlinear interactions using **Volterra series expansions**, which can be computationally expensive for higher-order terms.  
 
-We propose an alternative approach:  
-🔹 **Reformulate high-order interactions using RKHS projections**.  
-🔹 **Use kernel approximations to reduce complexity**.  
-🔹 **Introduce functional regularization to improve generalization**.  
+RKHS-Based Improvement Strategy
+The original Volterra Neural Networks (VNNs) model nonlinear interactions using Volterra series expansions, which can be computationally expensive for higher-order terms. Our approach focuses on a one-stream (RGB) VNN architecture, where we:🔹 Reformulate high-order interactions using RKHS projections to reduce computational complexity.🔹 Use kernel approximations to efficiently model nonlinear relationships in RGB data.🔹 Introduce functional regularization to improve generalization.  
+By applying RKHS projections to a one-stream VNN, we aim to achieve comparable or better performance than the baseline VNN model from Roheda et al. (JMLR 2024) with lower computational cost. The RKHS-based implementation can be found in networks/vnn_rkhs.py.  
 
-The RKHS-based implementation can be found in `networks/vnn_rkhs.py`.  
+Mathematical Foundations of RKHS Approximation
+RKHS representations enable an implicit mapping of input data into a high-dimensional feature space where nonlinear relationships can be effectively modeled using linear methods. The connection between Volterra series and RKHS representations was formalized by Franz and Schölkopf (2006), who demonstrated that polynomial kernel regression provides a unifying framework for Wiener and Volterra theory.  
+Specifically, given an input-output relationship expressed through a Volterra series expansion:[\sum_{k=0}^{n} W^k(x) = \eta^{(n)} \varphi^{(n)}(x)]it is possible to approximate this expansion using an inhomogeneous polynomial kernel:[k(x, y) = (\langle x, y \rangle + 1)^n]where ( n ) is the order of the Volterra series, which naturally encodes higher-order interactions (Franz and Schölkopf, 2006).  
+For our one-stream (RGB) VNN, we focus on a second-order Volterra series, rewritten using the following RKHS projection:[g\left(\mathbf{X}{\begin{bmatrix}\scriptsize t-L+1:t \\scriptsize s_1-p_1:s_1+p_1 \\scriptsize s_2-p_2:s_2+p_2\end{bmatrix}}\right) =\sum{i=1}^{P} \alpha_i \left\langle \varphi^{(2)}\left( \mathbf{X}_{\begin{bmatrix}\scriptsize t-L+1:t \\scriptsize s_1-p_1:s_1+p_1 \\scriptsize s_2-p_2:s_2+p_2\end{bmatrix} \right), \varphi^{(2)}\left( \mathbf{X}_i \right) \right\rangle]This formulation allows us to capture complex nonlinear interactions in RGB data while leveraging the computational efficiency of kernel methods, enabling a direct comparison with the baseline VNN model.  
 
----
-
-## **Project Structure**  
-```
+Project Structure
 volterra/
 ├── config/                # Configuration files
 ├── data/                  # Datasets and preprocessing scripts
@@ -70,51 +43,42 @@ volterra/
 ├── models/                # Trained models and checkpoints
 ├── networks/              # Model architectures
 │   ├── vnn_rgb_of_complex.py  # Standard VNN architecture
-│   ├── vnn_rkhs.py            # RKHS-based Volterra implementation
-├── inference.py           # Script for model inference
+│   ├── vnn_rkhs.py            # RKHS-based Volterra implementation for one-stream RGB
+├── train           # Script for model inference & training
 ├── requirements.txt       # Dependencies list
 ├── train_VNN_fusion_highQ.py  # Main training script
 └── README.md              # Project documentation
-```
 
----
 
-## **Results & Findings**  
-📊 **Performance Evaluation**  
-We compare the **baseline VNN model** across the HMDB51 datasets.  
+Results & Findings
+📊 Performance EvaluationWe compare the baseline VNN model and the RKHS-enhanced one-stream (RGB) VNN across the HMDB51 datasets to evaluate improvements in accuracy and computational efficiency.  
 
----
+Future Work
+🚀 Exploring different kernel choices for RKHS embedding in the one-stream architecture.🚀 Extending to self-supervised learning and few-shot learning for RGB inputs.🚀 Investigating hybrid VNN-CNN architectures for large-scale applications.  
 
-## **Future Work**  
-🚀 Exploring different kernel choices for RKHS embedding.  
-🚀 Extending to **self-supervised learning** and **few-shot learning**.  
-🚀 Investigating hybrid **VNN-CNN architectures** for large-scale applications.  
-
----
-
-## **Citation**  
+Citation
 If you use our work, please cite the original paper:  
-
-```bibtex
-@inproceedings{roheda2020conquering,
-  title={Conquering the cnn over-parameterization dilemma: A volterra filtering approach for action recognition},
-  author={Roheda, Siddharth and Krim, Hamid},
-  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  volume={34},
-  number={07},
-  pages={11948--11956},
-  year={2020}
+@article{roheda2024volterra,
+  title={Volterra Neural Networks (VNNs)},
+  author={Roheda, Siddharth and Krim, Hamid and Jiang, Bo},
+  journal={Journal of Machine Learning Research},
+  volume={25},
+  pages={1--29},
+  year={2024},
+  url={https://www.jmlr.org/papers/v25/21-1130.html}
 }
-```
 
-## Contact  
+Additionally, for the mathematical foundations of the RKHS approximation, please cite:  
+@article{Franz2006,
+  title={Reproducing kernel Hilbert spaces and Volterra series},
+  author={Franz, M. and Sch{\"o}lkopf, B.},
+  journal={Technical Report},
+  year={2006}
+}
 
-For questions or feedback, feel free to reach out:  
-👨‍💻 **Authors:**: Clément Leprêtre & Ilyess Doragh
-🏫 **Institution:** CentraleSupélec – MVA Deep Learning Course  
-📩 **Contact:**: clement.lepretre@student-cs.fr / ilyess.doragh@student-cs.fr
 
----
+Contact
+For questions or feedback, feel free to reach out:👨‍💻 Authors: Clément Leprêtre & Salim Gazzeh🏫 Institution: CentraleSupélec – Mention MDS📩 Contact: clement.lepretre@centralesupelec.fr / salim.gazzeh@centralesupelec.fr  
 
-## **Acknowledgements**  
-We thank **CentraleSupélec** and the **MVA faculty** for their guidance, as well as **Siddharth Roheda & Hamid Krim** for their foundational work on Volterra Neural Networks.  
+Acknowledgements
+We express our gratitude to CentraleSupélec and the MDS faculty for their support. Special thanks to our supervisors, JC Pesquet and H. Krim, for their guidance, and to our tutor, A. Minasyan, for their valuable feedback. We also acknowledge Siddharth Roheda, Hamid Krim, and Bo Jiang for their foundational work on Volterra Neural Networks, and M. Franz and B. Schölkopf for their contributions to the RKHS-Volterra connection.

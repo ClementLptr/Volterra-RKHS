@@ -18,8 +18,8 @@ __pycache__/
 *.pyd
 
 # Ignorer les fichiers de logs
-# *.log
-# logs/
+*.log
+logs/
 
 # Ignorer les fichiers CSV de métriques d'entraînement
 *_training_metrics.csv
