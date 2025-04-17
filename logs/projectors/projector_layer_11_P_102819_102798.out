@@ -1,0 +1,25 @@
+Démarrage de la tâche 11 : Couche 2, P = 24
+2025-03-25 12:27:09,142 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:27:09,142 - INFO - Model version: test
+2025-03-25 12:27:09,143 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:27:09,143 - INFO - Model version: test
+2025-03-25 12:27:09,183 - INFO - Starting job: Layer=2, P=24, Save Dir=results/projectors
+2025-03-25 12:27:09,183 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:27:09,761 - INFO - Number of train videos: 4289
+2025-03-25 12:27:09,881 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P24.pt
+2025-03-25 12:27:09,927 - INFO - Initial memory usage: 0.67 GB
+2025-03-25 12:27:09,927 - INFO - Starting projector computation for Layer 2, P=24
+2025-03-25 12:27:09,927 - INFO - Extracting patches for Layer 2
+2025-03-25 12:31:06,601 - INFO - Patches extracted: 6187 patches, Memory: 1.05 GB
+2025-03-25 12:31:06,602 - INFO - Patches extracted: 6187 patches, Memory: 1.05 GB
+2025-03-25 12:31:06,602 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:31:06,602 - INFO - Starting kernel k-means for 12 projectors with 6187 samples
+2025-03-25 12:31:07,105 - INFO - Nyström results: Sil=0.4612, Recon=130.8007, Align=0.9970
+2025-03-25 12:31:07,106 - INFO - Starting RFF for 12 projectors with 6187 samples
+2025-03-25 12:31:07,234 - INFO - RFF results: Sil=0.4825, Recon=121.8025, Align=1.0000
+2025-03-25 12:31:07,235 - INFO - Computing random projectors
+2025-03-25 12:31:07,235 - INFO - Computing random projectors for 24
+2025-03-25 12:31:07,985 - INFO - Random projector results: Sil=0.5160, Recon=526.1166, Align=0.4272
+2025-03-25 12:31:08,010 - INFO - Saved to results/projectors/projectors_layer_2_P24.pt and results/projectors/metrics_layer_2_P24.npy, Memory: 1.11 GB
+2025-03-25 12:31:08,011 - INFO - Job completed, Memory: 1.09 GB
+Tâche 11 terminée : Couche 2, P = 24

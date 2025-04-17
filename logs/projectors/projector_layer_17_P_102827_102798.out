@@ -1,0 +1,25 @@
+Démarrage de la tâche 17 : Couche 2, P = 640
+2025-03-25 12:36:36,860 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:36:36,861 - INFO - Model version: test
+2025-03-25 12:36:36,861 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:36:36,861 - INFO - Model version: test
+2025-03-25 12:36:36,911 - INFO - Starting job: Layer=2, P=640, Save Dir=results/projectors
+2025-03-25 12:36:36,912 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:36:38,002 - INFO - Number of train videos: 4289
+2025-03-25 12:36:38,161 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P640.pt
+2025-03-25 12:36:38,246 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:36:38,246 - INFO - Starting projector computation for Layer 2, P=640
+2025-03-25 12:36:38,246 - INFO - Extracting patches for Layer 2
+2025-03-25 12:40:35,334 - INFO - Patches extracted: 6187 patches, Memory: 1.12 GB
+2025-03-25 12:40:35,335 - INFO - Patches extracted: 6187 patches, Memory: 1.12 GB
+2025-03-25 12:40:35,335 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:40:35,335 - INFO - Starting kernel k-means for 320 projectors with 6187 samples
+2025-03-25 12:40:36,105 - INFO - Nyström results: Sil=0.4819, Recon=110138.6641, Align=0.9567
+2025-03-25 12:40:36,106 - INFO - Starting RFF for 320 projectors with 6187 samples
+2025-03-25 12:40:36,535 - INFO - RFF results: Sil=0.4506, Recon=103427.0523, Align=1.0000
+2025-03-25 12:40:36,565 - INFO - Computing random projectors
+2025-03-25 12:40:36,565 - INFO - Computing random projectors for 640
+2025-03-25 12:40:53,198 - INFO - Random projector results: Sil=0.4630, Recon=407985.0139, Align=0.3145
+2025-03-25 12:40:53,267 - INFO - Saved to results/projectors/projectors_layer_2_P640.pt and results/projectors/metrics_layer_2_P640.npy, Memory: 1.19 GB
+2025-03-25 12:40:53,267 - INFO - Job completed, Memory: 1.18 GB
+Tâche 17 terminée : Couche 2, P = 640

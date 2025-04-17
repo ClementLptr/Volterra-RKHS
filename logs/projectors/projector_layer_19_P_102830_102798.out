@@ -1,0 +1,25 @@
+Démarrage de la tâche 19 : Couche 2, P = 896
+2025-03-25 12:39:34,372 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:39:34,372 - INFO - Model version: test
+2025-03-25 12:39:34,372 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:39:34,373 - INFO - Model version: test
+2025-03-25 12:39:34,428 - INFO - Starting job: Layer=2, P=896, Save Dir=results/projectors
+2025-03-25 12:39:34,429 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:39:35,049 - INFO - Number of train videos: 4289
+2025-03-25 12:39:35,196 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P896.pt
+2025-03-25 12:39:35,327 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:39:35,327 - INFO - Starting projector computation for Layer 2, P=896
+2025-03-25 12:39:35,327 - INFO - Extracting patches for Layer 2
+2025-03-25 12:43:39,252 - INFO - Patches extracted: 6187 patches, Memory: 1.11 GB
+2025-03-25 12:43:39,253 - INFO - Patches extracted: 6187 patches, Memory: 1.11 GB
+2025-03-25 12:43:39,253 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:43:39,253 - INFO - Starting kernel k-means for 448 projectors with 6187 samples
+2025-03-25 12:43:39,810 - INFO - Nyström results: Sil=0.5132, Recon=216512.4062, Align=0.9986
+2025-03-25 12:43:39,810 - INFO - Starting RFF for 448 projectors with 6187 samples
+2025-03-25 12:43:40,126 - INFO - RFF results: Sil=0.4767, Recon=205675.3814, Align=1.0000
+2025-03-25 12:43:40,137 - INFO - Computing random projectors
+2025-03-25 12:43:40,137 - INFO - Computing random projectors for 896
+2025-03-25 12:43:41,625 - INFO - Random projector results: Sil=0.5287, Recon=800441.8167, Align=0.4024
+2025-03-25 12:43:41,657 - INFO - Saved to results/projectors/projectors_layer_2_P896.pt and results/projectors/metrics_layer_2_P896.npy, Memory: 1.21 GB
+2025-03-25 12:43:41,657 - INFO - Job completed, Memory: 1.21 GB
+Tâche 19 terminée : Couche 2, P = 896

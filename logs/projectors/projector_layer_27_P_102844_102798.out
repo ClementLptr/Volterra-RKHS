@@ -1,0 +1,26 @@
+Démarrage de la tâche 27 : Couche 3, P = 640
+2025-03-25 12:48:30,979 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:48:30,979 - INFO - Model version: test
+2025-03-25 12:48:30,980 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:48:30,980 - INFO - Model version: test
+2025-03-25 12:48:31,015 - INFO - Starting job: Layer=3, P=640, Save Dir=results/projectors
+2025-03-25 12:48:31,016 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:48:31,747 - INFO - Number of train videos: 4289
+2025-03-25 12:48:31,909 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P640.pt
+2025-03-25 12:48:31,916 - INFO - Loaded projectors for Layer 2 from results/projectors/projectors_layer_2_P640.pt
+2025-03-25 12:48:32,032 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:48:32,032 - INFO - Starting projector computation for Layer 3, P=640
+2025-03-25 12:48:32,032 - INFO - Extracting patches for Layer 3
+2025-03-25 12:51:55,951 - INFO - Patches extracted: 6187 patches, Memory: 1.14 GB
+2025-03-25 12:51:55,952 - INFO - Patches extracted: 6187 patches, Memory: 1.14 GB
+2025-03-25 12:51:55,952 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:51:55,952 - INFO - Starting kernel k-means for 320 projectors with 6187 samples
+2025-03-25 12:51:58,025 - INFO - Nyström results: Sil=0.5155, Recon=109627.0000, Align=0.9638
+2025-03-25 12:51:58,026 - INFO - Starting RFF for 320 projectors with 6187 samples
+2025-03-25 12:52:01,291 - INFO - RFF results: Sil=0.4717, Recon=104106.2021, Align=1.0000
+2025-03-25 12:52:01,317 - INFO - Computing random projectors
+2025-03-25 12:52:01,317 - INFO - Computing random projectors for 640
+2025-03-25 12:54:09,606 - INFO - Random projector results: Sil=0.5266, Recon=407942.1488, Align=0.4205
+2025-03-25 12:54:09,711 - INFO - Saved to results/projectors/projectors_layer_3_P640.pt and results/projectors/metrics_layer_3_P640.npy, Memory: 1.19 GB
+2025-03-25 12:54:09,711 - INFO - Job completed, Memory: 1.16 GB
+Tâche 27 terminée : Couche 3, P = 640

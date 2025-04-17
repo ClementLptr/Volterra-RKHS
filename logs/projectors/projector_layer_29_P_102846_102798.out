@@ -1,0 +1,26 @@
+Démarrage de la tâche 29 : Couche 3, P = 896
+2025-03-25 12:52:21,290 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:52:21,290 - INFO - Model version: test
+2025-03-25 12:52:21,291 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:52:21,291 - INFO - Model version: test
+2025-03-25 12:52:21,348 - INFO - Starting job: Layer=3, P=896, Save Dir=results/projectors
+2025-03-25 12:52:21,348 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:52:22,069 - INFO - Number of train videos: 4289
+2025-03-25 12:52:22,496 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P896.pt
+2025-03-25 12:52:22,503 - INFO - Loaded projectors for Layer 2 from results/projectors/projectors_layer_2_P896.pt
+2025-03-25 12:52:22,601 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:52:22,601 - INFO - Starting projector computation for Layer 3, P=896
+2025-03-25 12:52:22,601 - INFO - Extracting patches for Layer 3
+2025-03-25 12:56:16,151 - INFO - Patches extracted: 6187 patches, Memory: 1.08 GB
+2025-03-25 12:56:16,152 - INFO - Patches extracted: 6187 patches, Memory: 1.08 GB
+2025-03-25 12:56:16,152 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:56:16,152 - INFO - Starting kernel k-means for 448 projectors with 6187 samples
+2025-03-25 12:56:16,728 - INFO - Nyström results: Sil=0.5741, Recon=215973.6250, Align=0.9942
+2025-03-25 12:56:16,729 - INFO - Starting RFF for 448 projectors with 6187 samples
+2025-03-25 12:56:17,077 - INFO - RFF results: Sil=0.5246, Recon=204321.8171, Align=1.0000
+2025-03-25 12:56:17,080 - INFO - Computing random projectors
+2025-03-25 12:56:17,080 - INFO - Computing random projectors for 896
+2025-03-25 12:56:19,950 - INFO - Random projector results: Sil=0.5613, Recon=800662.8857, Align=0.5415
+2025-03-25 12:56:20,011 - INFO - Saved to results/projectors/projectors_layer_3_P896.pt and results/projectors/metrics_layer_3_P896.npy, Memory: 1.12 GB
+2025-03-25 12:56:20,011 - INFO - Job completed, Memory: 1.09 GB
+Tâche 29 terminée : Couche 3, P = 896

@@ -1,0 +1,15 @@
+{
+    "logger": {
+        "log_dir": "logs",
+        "log_level": "INFO",
+        "max_log_size": 10485760,
+        "backup_count": 5,
+        "model_version": "test"
+    },
+    "model": {
+        "model_name": "RKHS_RGB_VNN"
+    },
+    "task": {
+        "task_type": "train_rkhs_rgb_vnn"
+    }
+}

@@ -1,0 +1,26 @@
+Démarrage de la tâche 8 : Couche 1, P = 768
+2025-03-25 12:17:50,103 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:17:50,103 - INFO - Model version: test
+2025-03-25 12:17:50,103 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:17:50,104 - INFO - Model version: test
+2025-03-25 12:17:50,133 - INFO - Starting job: Layer=1, P=768, Save Dir=results/projectors
+2025-03-25 12:17:50,134 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:17:50,699 - INFO - Number of train videos: 4289
+2025-03-25 12:17:50,923 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:17:50,923 - INFO - Starting projector computation for Layer 1, P=768
+2025-03-25 12:17:50,923 - INFO - Performing stratified sampling for 2000 samples across 51 classes
+2025-03-25 12:25:19,423 - INFO - Stratified sample complete: 1989 samples selected
+2025-03-25 12:25:19,425 - INFO - Extracting patches for Layer 1
+2025-03-25 12:27:00,473 - INFO - Patches extracted: 6250 patches, Memory: 0.95 GB
+2025-03-25 12:27:00,473 - INFO - Patches extracted: 6250 patches, Memory: 0.95 GB
+2025-03-25 12:27:00,473 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:27:00,473 - INFO - Starting kernel k-means for 384 projectors with 6250 samples
+2025-03-25 12:27:01,089 - INFO - Nyström results: Sil=0.0194, Recon=160424.2031, Align=0.9978
+2025-03-25 12:27:01,090 - INFO - Starting RFF for 384 projectors with 6250 samples
+2025-03-25 12:27:01,516 - INFO - RFF results: Sil=-0.0309, Recon=147056.3211, Align=1.0000
+2025-03-25 12:27:01,526 - INFO - Computing random projectors
+2025-03-25 12:27:01,526 - INFO - Computing random projectors for 768
+2025-03-25 12:27:02,035 - INFO - Random projector results: Sil=0.0157, Recon=587367.2048, Align=0.5515
+2025-03-25 12:27:02,051 - INFO - Saved to results/projectors/projectors_layer_1_P768.pt and results/projectors/metrics_layer_1_P768.npy, Memory: 0.97 GB
+2025-03-25 12:27:02,051 - INFO - Job completed, Memory: 0.97 GB
+Tâche 8 terminée : Couche 1, P = 768

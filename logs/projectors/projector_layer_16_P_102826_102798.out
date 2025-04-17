@@ -1,0 +1,25 @@
+Démarrage de la tâche 16 : Couche 2, P = 512
+2025-03-25 12:35:23,421 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:35:23,421 - INFO - Model version: test
+2025-03-25 12:35:23,421 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:35:23,421 - INFO - Model version: test
+2025-03-25 12:35:23,455 - INFO - Starting job: Layer=2, P=512, Save Dir=results/projectors
+2025-03-25 12:35:23,455 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:35:24,460 - INFO - Number of train videos: 4289
+2025-03-25 12:35:24,608 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P512.pt
+2025-03-25 12:35:24,685 - INFO - Initial memory usage: 0.68 GB
+2025-03-25 12:35:24,685 - INFO - Starting projector computation for Layer 2, P=512
+2025-03-25 12:35:24,685 - INFO - Extracting patches for Layer 2
+2025-03-25 12:39:23,713 - INFO - Patches extracted: 6187 patches, Memory: 1.11 GB
+2025-03-25 12:39:23,714 - INFO - Patches extracted: 6187 patches, Memory: 1.11 GB
+2025-03-25 12:39:23,714 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:39:23,714 - INFO - Starting kernel k-means for 256 projectors with 6187 samples
+2025-03-25 12:39:24,470 - INFO - Nyström results: Sil=0.5050, Recon=70296.3516, Align=0.9991
+2025-03-25 12:39:24,471 - INFO - Starting RFF for 256 projectors with 6187 samples
+2025-03-25 12:39:24,841 - INFO - RFF results: Sil=0.4968, Recon=66585.8967, Align=1.0000
+2025-03-25 12:39:24,842 - INFO - Computing random projectors
+2025-03-25 12:39:24,842 - INFO - Computing random projectors for 512
+2025-03-25 12:39:25,949 - INFO - Random projector results: Sil=0.4874, Recon=260931.2806, Align=0.2936
+2025-03-25 12:39:25,988 - INFO - Saved to results/projectors/projectors_layer_2_P512.pt and results/projectors/metrics_layer_2_P512.npy, Memory: 1.19 GB
+2025-03-25 12:39:25,988 - INFO - Job completed, Memory: 1.17 GB
+Tâche 16 terminée : Couche 2, P = 512

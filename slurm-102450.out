@@ -1,0 +1,292 @@
+2025-03-24 11:18:59,278 - INFO - Logging initialized. Log file: /usr/users/volterrakernel/lepretre_cle/volterra/logs/v1/BASIC_RGB_VNN-v1-train_basic_rgb_vnn-run-2025-03-24-11-18-59.log
+2025-03-24 11:18:59,279 - INFO - Model version: v1
+2025-03-24 11:18:59,338 - INFO - Using device: cuda:0
+/usr/users/volterrakernel/lepretre_cle/volterra/train_VNN_RKHS_RGB.py:181: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = GradScaler()
+2025-03-24 11:19:01,910 - INFO - Total parameters: 4345347
+2025-03-24 11:19:01,910 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-24 11:19:02,398 - INFO - Number of train videos: 4289
+2025-03-24 11:19:02,508 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-24 11:19:02,738 - INFO - Number of val videos: 1101
+2025-03-24 11:19:02,744 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-24 11:19:02,995 - INFO - Number of test videos: 1376
+2025-03-24 11:26:32,593 - INFO - train Loss: 141.6708 Acc: 0.0233 Top-5 Acc: 0.1017
+2025-03-24 11:26:32,594 - INFO - train epoch 1/100 took 449.59s
+2025-03-24 11:27:35,978 - INFO - val Loss: 61.9941 Acc: 0.0209 Top-5 Acc: 0.1553
+2025-03-24 11:27:35,980 - INFO - val epoch 1/100 took 63.39s
+2025-03-24 11:27:35,981 - INFO - Epoch 1/100, Learning rate: 0.000280
+2025-03-24 11:35:07,844 - INFO - train Loss: 130.0230 Acc: 0.0294 Top-5 Acc: 0.1075
+2025-03-24 11:35:07,846 - INFO - train epoch 2/100 took 451.86s
+2025-03-24 11:36:10,814 - INFO - val Loss: 54.6822 Acc: 0.0336 Top-5 Acc: 0.1535
+2025-03-24 11:36:10,815 - INFO - val epoch 2/100 took 62.97s
+2025-03-24 11:36:10,815 - INFO - Epoch 2/100, Learning rate: 0.000460
+2025-03-24 11:43:42,577 - INFO - train Loss: 113.5488 Acc: 0.0273 Top-5 Acc: 0.1152
+2025-03-24 11:43:42,579 - INFO - train epoch 3/100 took 451.76s
+2025-03-24 11:44:45,757 - INFO - val Loss: 51.6976 Acc: 0.0627 Top-5 Acc: 0.1789
+2025-03-24 11:44:45,758 - INFO - val epoch 3/100 took 63.18s
+2025-03-24 11:44:45,759 - INFO - Epoch 3/100, Learning rate: 0.000640
+2025-03-24 11:52:17,989 - INFO - train Loss: 89.3123 Acc: 0.0252 Top-5 Acc: 0.1103
+2025-03-24 11:52:17,991 - INFO - train epoch 4/100 took 452.23s
+2025-03-24 11:53:20,718 - INFO - val Loss: 35.2607 Acc: 0.0173 Top-5 Acc: 0.1653
+2025-03-24 11:53:20,719 - INFO - val epoch 4/100 took 62.73s
+2025-03-24 11:53:20,720 - INFO - Epoch 4/100, Learning rate: 0.000820
+2025-03-24 12:00:51,743 - INFO - train Loss: 48.9860 Acc: 0.0275 Top-5 Acc: 0.1173
+2025-03-24 12:00:51,745 - INFO - train epoch 5/100 took 451.03s
+2025-03-24 12:01:54,608 - INFO - val Loss: 13.7625 Acc: 0.0163 Top-5 Acc: 0.1126
+2025-03-24 12:01:54,609 - INFO - val epoch 5/100 took 62.86s
+/usr/users/volterrakernel/lepretre_cle/miniconda3/lib/python3.12/site-packages/torch/optim/lr_scheduler.py:240: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+2025-03-24 12:01:54,613 - INFO - Epoch 5/100, Learning rate: 0.001000
+2025-03-24 12:09:26,578 - INFO - train Loss: 8.8686 Acc: 0.0291 Top-5 Acc: 0.1278
+2025-03-24 12:09:26,579 - INFO - train epoch 6/100 took 451.97s
+2025-03-24 12:10:29,297 - INFO - val Loss: 4.1764 Acc: 0.0136 Top-5 Acc: 0.1054
+2025-03-24 12:10:29,298 - INFO - val epoch 6/100 took 62.72s
+2025-03-24 12:10:29,298 - INFO - Epoch 6/100, Learning rate: 0.001000
+2025-03-24 12:18:01,095 - INFO - train Loss: 4.3299 Acc: 0.0310 Top-5 Acc: 0.1278
+2025-03-24 12:18:01,097 - INFO - train epoch 7/100 took 451.80s
+2025-03-24 12:19:03,933 - INFO - val Loss: 4.1538 Acc: 0.0145 Top-5 Acc: 0.0926
+2025-03-24 12:19:03,934 - INFO - val epoch 7/100 took 62.84s
+2025-03-24 12:19:03,934 - INFO - Epoch 7/100, Learning rate: 0.000999
+2025-03-24 12:26:35,935 - INFO - train Loss: 4.2334 Acc: 0.0350 Top-5 Acc: 0.1406
+2025-03-24 12:26:35,936 - INFO - train epoch 8/100 took 452.00s
+2025-03-24 12:27:38,972 - INFO - val Loss: 4.1218 Acc: 0.0154 Top-5 Acc: 0.1553
+2025-03-24 12:27:38,973 - INFO - val epoch 8/100 took 63.04s
+2025-03-24 12:27:38,974 - INFO - Epoch 8/100, Learning rate: 0.000998
+2025-03-24 12:35:11,011 - INFO - train Loss: 4.2074 Acc: 0.0368 Top-5 Acc: 0.1313
+2025-03-24 12:35:11,012 - INFO - train epoch 9/100 took 452.04s
+2025-03-24 12:36:13,848 - INFO - val Loss: 4.1592 Acc: 0.0163 Top-5 Acc: 0.0936
+2025-03-24 12:36:13,850 - INFO - val epoch 9/100 took 62.84s
+2025-03-24 12:36:13,852 - INFO - Epoch 9/100, Learning rate: 0.000996
+2025-03-24 12:43:45,214 - INFO - train Loss: 4.1998 Acc: 0.0373 Top-5 Acc: 0.1378
+2025-03-24 12:43:45,216 - INFO - train epoch 10/100 took 451.36s
+2025-03-24 12:44:47,948 - INFO - val Loss: 4.0813 Acc: 0.0209 Top-5 Acc: 0.0863
+2025-03-24 12:44:47,949 - INFO - val epoch 10/100 took 62.73s
+2025-03-24 12:44:47,949 - INFO - Epoch 10/100, Learning rate: 0.000993
+2025-03-24 12:44:47,949 - INFO - Test phase not implemented in this version.
+2025-03-24 12:52:18,705 - INFO - train Loss: 4.1914 Acc: 0.0326 Top-5 Acc: 0.1434
+2025-03-24 12:52:18,706 - INFO - train epoch 11/100 took 450.76s
+2025-03-24 12:53:21,510 - INFO - val Loss: 4.2360 Acc: 0.0182 Top-5 Acc: 0.1163
+2025-03-24 12:53:21,511 - INFO - val epoch 11/100 took 62.80s
+2025-03-24 12:53:21,512 - INFO - Epoch 11/100, Learning rate: 0.000990
+2025-03-24 13:00:52,306 - INFO - train Loss: 4.1837 Acc: 0.0436 Top-5 Acc: 0.1455
+2025-03-24 13:00:52,307 - INFO - train epoch 12/100 took 450.80s
+2025-03-24 13:01:54,947 - INFO - val Loss: 4.0598 Acc: 0.0300 Top-5 Acc: 0.0972
+2025-03-24 13:01:54,948 - INFO - val epoch 12/100 took 62.64s
+2025-03-24 13:01:54,948 - INFO - Epoch 12/100, Learning rate: 0.000987
+2025-03-24 13:09:25,611 - INFO - train Loss: 4.1811 Acc: 0.0366 Top-5 Acc: 0.1373
+2025-03-24 13:09:25,613 - INFO - train epoch 13/100 took 450.66s
+2025-03-24 13:10:28,529 - INFO - val Loss: 4.1863 Acc: 0.0799 Top-5 Acc: 0.1526
+2025-03-24 13:10:28,531 - INFO - val epoch 13/100 took 62.92s
+2025-03-24 13:10:28,531 - INFO - Epoch 13/100, Learning rate: 0.000983
+2025-03-24 13:17:59,965 - INFO - train Loss: 4.1882 Acc: 0.0406 Top-5 Acc: 0.1350
+2025-03-24 13:17:59,966 - INFO - train epoch 14/100 took 451.43s
+2025-03-24 13:19:03,065 - INFO - val Loss: 4.0011 Acc: 0.0200 Top-5 Acc: 0.1362
+2025-03-24 13:19:03,067 - INFO - val epoch 14/100 took 63.10s
+2025-03-24 13:19:03,069 - INFO - Epoch 14/100, Learning rate: 0.000978
+2025-03-24 13:26:33,640 - INFO - train Loss: 4.1745 Acc: 0.0403 Top-5 Acc: 0.1455
+2025-03-24 13:26:33,642 - INFO - train epoch 15/100 took 450.57s
+2025-03-24 13:27:36,419 - INFO - val Loss: 4.0612 Acc: 0.0799 Top-5 Acc: 0.1726
+2025-03-24 13:27:36,421 - INFO - val epoch 15/100 took 62.78s
+2025-03-24 13:27:36,421 - INFO - Epoch 15/100, Learning rate: 0.000973
+2025-03-24 13:35:07,186 - INFO - train Loss: 4.1767 Acc: 0.0406 Top-5 Acc: 0.1401
+2025-03-24 13:35:07,187 - INFO - train epoch 16/100 took 450.77s
+2025-03-24 13:36:10,097 - INFO - val Loss: 4.1415 Acc: 0.0336 Top-5 Acc: 0.1826
+2025-03-24 13:36:10,098 - INFO - val epoch 16/100 took 62.91s
+2025-03-24 13:36:10,099 - INFO - Epoch 16/100, Learning rate: 0.000967
+2025-03-24 13:43:42,690 - INFO - train Loss: 4.1772 Acc: 0.0396 Top-5 Acc: 0.1364
+2025-03-24 13:43:42,692 - INFO - train epoch 17/100 took 452.59s
+2025-03-24 13:44:45,632 - INFO - val Loss: 4.2007 Acc: 0.0218 Top-5 Acc: 0.1072
+2025-03-24 13:44:45,633 - INFO - val epoch 17/100 took 62.94s
+2025-03-24 13:44:45,634 - INFO - Epoch 17/100, Learning rate: 0.000961
+2025-03-24 13:52:18,310 - INFO - train Loss: 4.1635 Acc: 0.0406 Top-5 Acc: 0.1390
+2025-03-24 13:52:18,311 - INFO - train epoch 18/100 took 452.68s
+2025-03-24 13:53:21,264 - INFO - val Loss: 4.1920 Acc: 0.0163 Top-5 Acc: 0.1381
+2025-03-24 13:53:21,266 - INFO - val epoch 18/100 took 62.95s
+2025-03-24 13:53:21,267 - INFO - Epoch 18/100, Learning rate: 0.000955
+2025-03-24 14:00:53,961 - INFO - train Loss: 4.1779 Acc: 0.0331 Top-5 Acc: 0.1378
+2025-03-24 14:00:53,963 - INFO - train epoch 19/100 took 452.70s
+2025-03-24 14:01:57,035 - INFO - val Loss: 4.1277 Acc: 0.0191 Top-5 Acc: 0.0881
+2025-03-24 14:01:57,037 - INFO - val epoch 19/100 took 63.07s
+2025-03-24 14:01:57,038 - INFO - Epoch 19/100, Learning rate: 0.000947
+2025-03-24 14:09:29,390 - INFO - train Loss: 4.1575 Acc: 0.0410 Top-5 Acc: 0.1390
+2025-03-24 14:09:29,391 - INFO - train epoch 20/100 took 452.35s
+2025-03-24 14:10:32,360 - INFO - val Loss: 4.1715 Acc: 0.0154 Top-5 Acc: 0.1508
+2025-03-24 14:10:32,361 - INFO - val epoch 20/100 took 62.97s
+2025-03-24 14:10:32,361 - INFO - Epoch 20/100, Learning rate: 0.000940
+2025-03-24 14:10:32,777 - INFO - Saved checkpoint: /usr/users/volterrakernel/lepretre_cle/volterra/models/default_version/RKHS_Five_Layers-hmdb51_epoch-19.pth.tar
+2025-03-24 14:10:32,777 - INFO - Test phase not implemented in this version.
+2025-03-24 14:18:05,218 - INFO - train Loss: 4.1569 Acc: 0.0450 Top-5 Acc: 0.1383
+2025-03-24 14:18:05,219 - INFO - train epoch 21/100 took 452.44s
+2025-03-24 14:19:08,004 - INFO - val Loss: 4.2209 Acc: 0.0154 Top-5 Acc: 0.0899
+2025-03-24 14:19:08,005 - INFO - val epoch 21/100 took 62.78s
+2025-03-24 14:19:08,006 - INFO - Epoch 21/100, Learning rate: 0.000932
+2025-03-24 14:26:40,353 - INFO - train Loss: 4.1534 Acc: 0.0438 Top-5 Acc: 0.1476
+2025-03-24 14:26:40,354 - INFO - train epoch 22/100 took 452.35s
+2025-03-24 14:27:43,050 - INFO - val Loss: 4.0651 Acc: 0.0799 Top-5 Acc: 0.1553
+2025-03-24 14:27:43,051 - INFO - val epoch 22/100 took 62.70s
+2025-03-24 14:27:43,052 - INFO - Epoch 22/100, Learning rate: 0.000923
+2025-03-24 14:35:15,333 - INFO - train Loss: 4.1520 Acc: 0.0417 Top-5 Acc: 0.1380
+2025-03-24 14:35:15,335 - INFO - train epoch 23/100 took 452.28s
+2025-03-24 14:36:18,238 - INFO - val Loss: 4.1302 Acc: 0.0163 Top-5 Acc: 0.1272
+2025-03-24 14:36:18,239 - INFO - val epoch 23/100 took 62.90s
+2025-03-24 14:36:18,239 - INFO - Epoch 23/100, Learning rate: 0.000914
+2025-03-24 14:43:50,435 - INFO - train Loss: 4.1434 Acc: 0.0413 Top-5 Acc: 0.1495
+2025-03-24 14:43:50,437 - INFO - train epoch 24/100 took 452.20s
+2025-03-24 14:44:53,125 - INFO - val Loss: 4.0210 Acc: 0.0191 Top-5 Acc: 0.1571
+2025-03-24 14:44:53,127 - INFO - val epoch 24/100 took 62.69s
+2025-03-24 14:44:53,128 - INFO - Epoch 24/100, Learning rate: 0.000905
+2025-03-24 14:52:25,386 - INFO - train Loss: 4.1433 Acc: 0.0424 Top-5 Acc: 0.1436
+2025-03-24 14:52:25,387 - INFO - train epoch 25/100 took 452.26s
+2025-03-24 14:53:28,985 - INFO - val Loss: 4.1113 Acc: 0.0354 Top-5 Acc: 0.0972
+2025-03-24 14:53:28,986 - INFO - val epoch 25/100 took 63.60s
+2025-03-24 14:53:28,987 - INFO - Epoch 25/100, Learning rate: 0.000895
+2025-03-24 15:01:00,158 - INFO - train Loss: 4.1435 Acc: 0.0443 Top-5 Acc: 0.1357
+2025-03-24 15:01:00,160 - INFO - train epoch 26/100 took 451.17s
+2025-03-24 15:02:02,932 - INFO - val Loss: 4.0728 Acc: 0.0182 Top-5 Acc: 0.0881
+2025-03-24 15:02:02,934 - INFO - val epoch 26/100 took 62.77s
+2025-03-24 15:02:02,935 - INFO - Epoch 26/100, Learning rate: 0.000884
+2025-03-24 15:09:34,821 - INFO - train Loss: 4.1302 Acc: 0.0429 Top-5 Acc: 0.1464
+2025-03-24 15:09:34,823 - INFO - train epoch 27/100 took 451.89s
+2025-03-24 15:10:37,797 - INFO - val Loss: 4.1083 Acc: 0.0163 Top-5 Acc: 0.1453
+2025-03-24 15:10:37,798 - INFO - val epoch 27/100 took 62.97s
+2025-03-24 15:10:37,799 - INFO - Epoch 27/100, Learning rate: 0.000873
+2025-03-24 15:18:10,006 - INFO - train Loss: 4.1230 Acc: 0.0445 Top-5 Acc: 0.1518
+2025-03-24 15:18:10,007 - INFO - train epoch 28/100 took 452.21s
+2025-03-24 15:19:13,028 - INFO - val Loss: 4.1180 Acc: 0.0799 Top-5 Acc: 0.1490
+2025-03-24 15:19:13,029 - INFO - val epoch 28/100 took 63.02s
+2025-03-24 15:19:13,030 - INFO - Epoch 28/100, Learning rate: 0.000862
+2025-03-24 15:26:45,338 - INFO - train Loss: 4.1081 Acc: 0.0485 Top-5 Acc: 0.1504
+2025-03-24 15:26:45,339 - INFO - train epoch 29/100 took 452.31s
+2025-03-24 15:27:48,229 - INFO - val Loss: 4.1035 Acc: 0.0173 Top-5 Acc: 0.0954
+2025-03-24 15:27:48,230 - INFO - val epoch 29/100 took 62.89s
+2025-03-24 15:27:48,230 - INFO - Epoch 29/100, Learning rate: 0.000851
+2025-03-24 15:35:19,874 - INFO - train Loss: 4.1130 Acc: 0.0420 Top-5 Acc: 0.1488
+2025-03-24 15:35:19,875 - INFO - train epoch 30/100 took 451.64s
+2025-03-24 15:36:22,293 - INFO - val Loss: 4.2398 Acc: 0.0154 Top-5 Acc: 0.1807
+2025-03-24 15:36:22,294 - INFO - val epoch 30/100 took 62.42s
+2025-03-24 15:36:22,294 - INFO - Epoch 30/100, Learning rate: 0.000839
+2025-03-24 15:36:22,294 - INFO - Test phase not implemented in this version.
+2025-03-24 15:43:53,247 - INFO - train Loss: 4.1095 Acc: 0.0436 Top-5 Acc: 0.1509
+2025-03-24 15:43:53,249 - INFO - train epoch 31/100 took 450.95s
+2025-03-24 15:44:56,115 - INFO - val Loss: 4.1429 Acc: 0.0227 Top-5 Acc: 0.1499
+2025-03-24 15:44:56,116 - INFO - val epoch 31/100 took 62.87s
+2025-03-24 15:44:56,117 - INFO - Epoch 31/100, Learning rate: 0.000826
+2025-03-24 15:52:26,931 - INFO - train Loss: 4.1043 Acc: 0.0483 Top-5 Acc: 0.1513
+2025-03-24 15:52:26,933 - INFO - train epoch 32/100 took 450.82s
+2025-03-24 15:53:29,692 - INFO - val Loss: 4.0281 Acc: 0.0209 Top-5 Acc: 0.1217
+2025-03-24 15:53:29,692 - INFO - val epoch 32/100 took 62.76s
+2025-03-24 15:53:29,693 - INFO - Epoch 32/100, Learning rate: 0.000814
+2025-03-24 16:01:01,156 - INFO - train Loss: 4.0892 Acc: 0.0480 Top-5 Acc: 0.1518
+2025-03-24 16:01:01,157 - INFO - train epoch 33/100 took 451.46s
+2025-03-24 16:02:04,001 - INFO - val Loss: 4.0264 Acc: 0.0799 Top-5 Acc: 0.1562
+2025-03-24 16:02:04,003 - INFO - val epoch 33/100 took 62.84s
+2025-03-24 16:02:04,004 - INFO - Epoch 33/100, Learning rate: 0.000801
+2025-03-24 16:09:35,666 - INFO - train Loss: 4.0924 Acc: 0.0464 Top-5 Acc: 0.1553
+2025-03-24 16:09:35,668 - INFO - train epoch 34/100 took 451.66s
+2025-03-24 16:10:38,593 - INFO - val Loss: 4.0637 Acc: 0.0218 Top-5 Acc: 0.1526
+2025-03-24 16:10:38,594 - INFO - val epoch 34/100 took 62.93s
+2025-03-24 16:10:38,595 - INFO - Epoch 34/100, Learning rate: 0.000787
+2025-03-24 16:18:10,294 - INFO - train Loss: 4.0875 Acc: 0.0490 Top-5 Acc: 0.1534
+2025-03-24 16:18:10,296 - INFO - train epoch 35/100 took 451.70s
+2025-03-24 16:19:13,244 - INFO - val Loss: 4.0736 Acc: 0.0154 Top-5 Acc: 0.1553
+2025-03-24 16:19:13,245 - INFO - val epoch 35/100 took 62.95s
+2025-03-24 16:19:13,246 - INFO - Epoch 35/100, Learning rate: 0.000773
+2025-03-24 16:26:43,860 - INFO - train Loss: 4.0714 Acc: 0.0434 Top-5 Acc: 0.1576
+2025-03-24 16:26:43,861 - INFO - train epoch 36/100 took 450.62s
+2025-03-24 16:27:46,518 - INFO - val Loss: 3.9668 Acc: 0.0799 Top-5 Acc: 0.1735
+2025-03-24 16:27:46,520 - INFO - val epoch 36/100 took 62.66s
+2025-03-24 16:27:46,521 - INFO - Epoch 36/100, Learning rate: 0.000759
+2025-03-24 16:35:16,842 - INFO - train Loss: 4.0842 Acc: 0.0473 Top-5 Acc: 0.1462
+2025-03-24 16:35:16,843 - INFO - train epoch 37/100 took 450.32s
+2025-03-24 16:36:19,473 - INFO - val Loss: 4.0125 Acc: 0.0799 Top-5 Acc: 0.1726
+2025-03-24 16:36:19,475 - INFO - val epoch 37/100 took 62.63s
+2025-03-24 16:36:19,476 - INFO - Epoch 37/100, Learning rate: 0.000745
+2025-03-24 16:43:49,566 - INFO - train Loss: 4.0589 Acc: 0.0466 Top-5 Acc: 0.1639
+2025-03-24 16:43:49,567 - INFO - train epoch 38/100 took 450.09s
+2025-03-24 16:44:52,320 - INFO - val Loss: 4.0230 Acc: 0.0799 Top-5 Acc: 0.1826
+2025-03-24 16:44:52,321 - INFO - val epoch 38/100 took 62.75s
+2025-03-24 16:44:52,322 - INFO - Epoch 38/100, Learning rate: 0.000731
+2025-03-24 16:52:24,052 - INFO - train Loss: 4.0666 Acc: 0.0480 Top-5 Acc: 0.1543
+2025-03-24 16:52:24,053 - INFO - train epoch 39/100 took 451.73s
+2025-03-24 16:53:26,938 - INFO - val Loss: 4.0369 Acc: 0.0154 Top-5 Acc: 0.1553
+2025-03-24 16:53:26,939 - INFO - val epoch 39/100 took 62.89s
+2025-03-24 16:53:26,940 - INFO - Epoch 39/100, Learning rate: 0.000716
+2025-03-24 17:00:58,396 - INFO - train Loss: 4.0506 Acc: 0.0492 Top-5 Acc: 0.1585
+2025-03-24 17:00:58,397 - INFO - train epoch 40/100 took 451.46s
+2025-03-24 17:02:01,064 - INFO - val Loss: 4.0010 Acc: 0.0799 Top-5 Acc: 0.1680
+2025-03-24 17:02:01,065 - INFO - val epoch 40/100 took 62.67s
+2025-03-24 17:02:01,065 - INFO - Epoch 40/100, Learning rate: 0.000701
+2025-03-24 17:02:01,407 - INFO - Saved checkpoint: /usr/users/volterrakernel/lepretre_cle/volterra/models/default_version/RKHS_Five_Layers-hmdb51_epoch-39.pth.tar
+2025-03-24 17:02:01,407 - INFO - Test phase not implemented in this version.
+2025-03-24 17:09:32,881 - INFO - train Loss: 4.0497 Acc: 0.0504 Top-5 Acc: 0.1578
+2025-03-24 17:09:32,882 - INFO - train epoch 41/100 took 451.47s
+2025-03-24 17:10:35,628 - INFO - val Loss: 3.9720 Acc: 0.0200 Top-5 Acc: 0.1726
+2025-03-24 17:10:35,629 - INFO - val epoch 41/100 took 62.75s
+2025-03-24 17:10:35,629 - INFO - Epoch 41/100, Learning rate: 0.000686
+2025-03-24 17:18:06,433 - INFO - train Loss: 4.0424 Acc: 0.0539 Top-5 Acc: 0.1562
+2025-03-24 17:18:06,434 - INFO - train epoch 42/100 took 450.80s
+2025-03-24 17:19:09,239 - INFO - val Loss: 4.0381 Acc: 0.0154 Top-5 Acc: 0.1426
+2025-03-24 17:19:09,240 - INFO - val epoch 42/100 took 62.81s
+2025-03-24 17:19:09,241 - INFO - Epoch 42/100, Learning rate: 0.000670
+2025-03-24 17:26:39,287 - INFO - train Loss: 4.0374 Acc: 0.0499 Top-5 Acc: 0.1557
+2025-03-24 17:26:39,290 - INFO - train epoch 43/100 took 450.05s
+2025-03-24 17:27:42,213 - INFO - val Loss: 3.9306 Acc: 0.0799 Top-5 Acc: 0.1553
+2025-03-24 17:27:42,214 - INFO - val epoch 43/100 took 62.92s
+2025-03-24 17:27:42,215 - INFO - Epoch 43/100, Learning rate: 0.000655
+2025-03-24 17:35:14,129 - INFO - train Loss: 4.0251 Acc: 0.0550 Top-5 Acc: 0.1506
+2025-03-24 17:35:14,131 - INFO - train epoch 44/100 took 451.92s
+2025-03-24 17:36:17,110 - INFO - val Loss: 4.0531 Acc: 0.0799 Top-5 Acc: 0.1589
+2025-03-24 17:36:17,111 - INFO - val epoch 44/100 took 62.98s
+2025-03-24 17:36:17,112 - INFO - Epoch 44/100, Learning rate: 0.000639
+2025-03-24 17:43:48,273 - INFO - train Loss: 4.0214 Acc: 0.0557 Top-5 Acc: 0.1560
+2025-03-24 17:43:48,275 - INFO - train epoch 45/100 took 451.16s
+2025-03-24 17:44:50,968 - INFO - val Loss: 4.0931 Acc: 0.0209 Top-5 Acc: 0.1589
+2025-03-24 17:44:50,969 - INFO - val epoch 45/100 took 62.69s
+2025-03-24 17:44:50,969 - INFO - Epoch 45/100, Learning rate: 0.000623
+2025-03-24 17:52:21,331 - INFO - train Loss: 4.0182 Acc: 0.0564 Top-5 Acc: 0.1576
+2025-03-24 17:52:21,332 - INFO - train epoch 46/100 took 450.36s
+2025-03-24 17:53:24,147 - INFO - val Loss: 4.0183 Acc: 0.0363 Top-5 Acc: 0.1744
+2025-03-24 17:53:24,148 - INFO - val epoch 46/100 took 62.82s
+2025-03-24 17:53:24,149 - INFO - Epoch 46/100, Learning rate: 0.000607
+2025-03-24 18:00:54,660 - INFO - train Loss: 4.0095 Acc: 0.0539 Top-5 Acc: 0.1597
+2025-03-24 18:00:54,662 - INFO - train epoch 47/100 took 450.51s
+2025-03-24 18:01:57,462 - INFO - val Loss: 4.0397 Acc: 0.0154 Top-5 Acc: 0.1108
+2025-03-24 18:01:57,463 - INFO - val epoch 47/100 took 62.80s
+2025-03-24 18:01:57,464 - INFO - Epoch 47/100, Learning rate: 0.000590
+2025-03-24 18:09:28,488 - INFO - train Loss: 4.0039 Acc: 0.0574 Top-5 Acc: 0.1639
+2025-03-24 18:09:28,489 - INFO - train epoch 48/100 took 451.03s
+2025-03-24 18:10:31,125 - INFO - val Loss: 3.9870 Acc: 0.0327 Top-5 Acc: 0.1717
+2025-03-24 18:10:31,126 - INFO - val epoch 48/100 took 62.64s
+2025-03-24 18:10:31,127 - INFO - Epoch 48/100, Learning rate: 0.000574
+2025-03-24 18:18:01,764 - INFO - train Loss: 3.9960 Acc: 0.0571 Top-5 Acc: 0.1618
+2025-03-24 18:18:01,765 - INFO - train epoch 49/100 took 450.64s
+2025-03-24 18:19:04,548 - INFO - val Loss: 3.9728 Acc: 0.0799 Top-5 Acc: 0.1853
+2025-03-24 18:19:04,549 - INFO - val epoch 49/100 took 62.78s
+2025-03-24 18:19:04,550 - INFO - Epoch 49/100, Learning rate: 0.000558
+2025-03-24 18:26:39,554 - INFO - train Loss: 3.9840 Acc: 0.0609 Top-5 Acc: 0.1644
+2025-03-24 18:26:39,555 - INFO - train epoch 50/100 took 455.01s
+2025-03-24 18:27:42,692 - INFO - val Loss: 3.9867 Acc: 0.0191 Top-5 Acc: 0.1035
+2025-03-24 18:27:42,693 - INFO - val epoch 50/100 took 63.14s
+2025-03-24 18:27:42,694 - INFO - Epoch 50/100, Learning rate: 0.000541
+2025-03-24 18:27:42,694 - INFO - Test phase not implemented in this version.
+2025-03-24 18:35:14,290 - INFO - train Loss: 3.9877 Acc: 0.0590 Top-5 Acc: 0.1679
+2025-03-24 18:35:14,291 - INFO - train epoch 51/100 took 451.60s
+2025-03-24 18:36:17,051 - INFO - val Loss: 3.9565 Acc: 0.0799 Top-5 Acc: 0.1617
+2025-03-24 18:36:17,052 - INFO - val epoch 51/100 took 62.76s
+2025-03-24 18:36:17,053 - INFO - Epoch 51/100, Learning rate: 0.000525
+2025-03-24 18:43:48,897 - INFO - train Loss: 3.9787 Acc: 0.0657 Top-5 Acc: 0.1676
+2025-03-24 18:43:48,898 - INFO - train epoch 52/100 took 451.85s
+2025-03-24 18:44:51,677 - INFO - val Loss: 3.9847 Acc: 0.0154 Top-5 Acc: 0.1744
+2025-03-24 18:44:51,678 - INFO - val epoch 52/100 took 62.78s
+2025-03-24 18:44:51,679 - INFO - Epoch 52/100, Learning rate: 0.000508
+2025-03-24 18:52:22,662 - INFO - train Loss: 3.9791 Acc: 0.0620 Top-5 Acc: 0.1690
+2025-03-24 18:52:22,664 - INFO - train epoch 53/100 took 450.98s
+2025-03-24 18:53:27,860 - INFO - val Loss: 3.9858 Acc: 0.0263 Top-5 Acc: 0.1744
+2025-03-24 18:53:27,861 - INFO - val epoch 53/100 took 65.20s
+2025-03-24 18:53:27,862 - INFO - Epoch 53/100, Learning rate: 0.000492
+2025-03-24 19:01:00,139 - INFO - train Loss: 3.9721 Acc: 0.0678 Top-5 Acc: 0.1714
+2025-03-24 19:01:00,141 - INFO - train epoch 54/100 took 452.28s
+2025-03-24 19:02:02,909 - INFO - val Loss: 3.9370 Acc: 0.0799 Top-5 Acc: 0.1717
+2025-03-24 19:02:02,910 - INFO - val epoch 54/100 took 62.77s
+2025-03-24 19:02:02,911 - INFO - Epoch 54/100, Learning rate: 0.000475
+slurmstepd: error: *** JOB 102450 ON sh10 CANCELLED AT 2025-03-24T19:09:15 DUE TO TIME LIMIT ***

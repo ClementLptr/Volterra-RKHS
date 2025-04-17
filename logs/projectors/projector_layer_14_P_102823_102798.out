@@ -1,0 +1,25 @@
+Démarrage de la tâche 14 : Couche 2, P = 192
+2025-03-25 12:32:28,107 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:32:28,107 - INFO - Model version: test
+2025-03-25 12:32:28,107 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:32:28,107 - INFO - Model version: test
+2025-03-25 12:32:28,148 - INFO - Starting job: Layer=2, P=192, Save Dir=results/projectors
+2025-03-25 12:32:28,148 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:32:29,373 - INFO - Number of train videos: 4289
+2025-03-25 12:32:29,512 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P192.pt
+2025-03-25 12:32:29,569 - INFO - Initial memory usage: 0.70 GB
+2025-03-25 12:32:29,569 - INFO - Starting projector computation for Layer 2, P=192
+2025-03-25 12:32:29,569 - INFO - Extracting patches for Layer 2
+2025-03-25 12:36:24,139 - INFO - Patches extracted: 6187 patches, Memory: 1.00 GB
+2025-03-25 12:36:24,139 - INFO - Patches extracted: 6187 patches, Memory: 1.00 GB
+2025-03-25 12:36:24,139 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:36:24,139 - INFO - Starting kernel k-means for 96 projectors with 6187 samples
+2025-03-25 12:36:24,438 - INFO - Nyström results: Sil=0.4751, Recon=9762.3730, Align=0.9934
+2025-03-25 12:36:24,439 - INFO - Starting RFF for 96 projectors with 6187 samples
+2025-03-25 12:36:24,590 - INFO - RFF results: Sil=0.4846, Recon=9195.0381, Align=1.0000
+2025-03-25 12:36:24,601 - INFO - Computing random projectors
+2025-03-25 12:36:24,601 - INFO - Computing random projectors for 192
+2025-03-25 12:36:25,060 - INFO - Random projector results: Sil=0.4528, Recon=36365.0033, Align=0.4203
+2025-03-25 12:36:25,104 - INFO - Saved to results/projectors/projectors_layer_2_P192.pt and results/projectors/metrics_layer_2_P192.npy, Memory: 1.07 GB
+2025-03-25 12:36:25,104 - INFO - Job completed, Memory: 1.06 GB
+Tâche 14 terminée : Couche 2, P = 192

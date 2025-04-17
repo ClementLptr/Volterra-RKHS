@@ -1,0 +1,26 @@
+Démarrage de la tâche 4 : Couche 1, P = 192
+2025-03-25 12:06:47,696 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:06:47,696 - INFO - Model version: test
+2025-03-25 12:06:47,697 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:06:47,697 - INFO - Model version: test
+2025-03-25 12:06:47,733 - INFO - Starting job: Layer=1, P=192, Save Dir=results/projectors
+2025-03-25 12:06:47,733 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:06:48,419 - INFO - Number of train videos: 4289
+2025-03-25 12:06:48,785 - INFO - Initial memory usage: 0.68 GB
+2025-03-25 12:06:48,785 - INFO - Starting projector computation for Layer 1, P=192
+2025-03-25 12:06:48,785 - INFO - Performing stratified sampling for 2000 samples across 51 classes
+2025-03-25 12:13:08,196 - INFO - Stratified sample complete: 1989 samples selected
+2025-03-25 12:13:08,199 - INFO - Extracting patches for Layer 1
+2025-03-25 12:14:39,476 - INFO - Patches extracted: 6250 patches, Memory: 1.01 GB
+2025-03-25 12:14:39,476 - INFO - Patches extracted: 6250 patches, Memory: 1.01 GB
+2025-03-25 12:14:39,476 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:14:39,476 - INFO - Starting kernel k-means for 96 projectors with 6250 samples
+2025-03-25 12:14:40,515 - INFO - Nyström results: Sil=0.1001, Recon=9847.9590, Align=0.9979
+2025-03-25 12:14:40,515 - INFO - Starting RFF for 96 projectors with 6250 samples
+2025-03-25 12:14:42,302 - INFO - RFF results: Sil=0.0705, Recon=9044.4624, Align=1.0000
+2025-03-25 12:14:42,303 - INFO - Computing random projectors
+2025-03-25 12:14:42,303 - INFO - Computing random projectors for 192
+2025-03-25 12:14:43,359 - INFO - Random projector results: Sil=0.0708, Recon=36215.3557, Align=0.5494
+2025-03-25 12:14:43,373 - INFO - Saved to results/projectors/projectors_layer_1_P192.pt and results/projectors/metrics_layer_1_P192.npy, Memory: 1.02 GB
+2025-03-25 12:14:43,373 - INFO - Job completed, Memory: 1.02 GB
+Tâche 4 terminée : Couche 1, P = 192

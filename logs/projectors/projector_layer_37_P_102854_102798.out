@@ -1,0 +1,27 @@
+Démarrage de la tâche 37 : Couche 4, P = 640
+2025-03-25 13:05:26,390 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 13:05:26,390 - INFO - Model version: test
+2025-03-25 13:05:26,390 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 13:05:26,390 - INFO - Model version: test
+2025-03-25 13:05:26,435 - INFO - Starting job: Layer=4, P=640, Save Dir=results/projectors
+2025-03-25 13:05:26,435 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 13:05:27,082 - INFO - Number of train videos: 4289
+2025-03-25 13:05:27,319 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P640.pt
+2025-03-25 13:05:27,325 - INFO - Loaded projectors for Layer 2 from results/projectors/projectors_layer_2_P640.pt
+2025-03-25 13:05:27,333 - INFO - Loaded projectors for Layer 3 from results/projectors/projectors_layer_3_P640.pt
+2025-03-25 13:05:27,413 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 13:05:27,413 - INFO - Starting projector computation for Layer 4, P=640
+2025-03-25 13:05:27,413 - INFO - Extracting patches for Layer 4
+2025-03-25 13:09:33,840 - INFO - Patches extracted: 6187 patches, Memory: 1.14 GB
+2025-03-25 13:09:33,841 - INFO - Patches extracted: 6187 patches, Memory: 1.14 GB
+2025-03-25 13:09:33,841 - INFO - Computing Nyström + RFF projectors
+2025-03-25 13:09:33,841 - INFO - Starting kernel k-means for 320 projectors with 6187 samples
+2025-03-25 13:09:34,782 - INFO - Nyström results: Sil=0.5178, Recon=110809.6562, Align=0.9983
+2025-03-25 13:09:34,783 - INFO - Starting RFF for 320 projectors with 6187 samples
+2025-03-25 13:09:35,271 - INFO - RFF results: Sil=0.4485, Recon=104562.3437, Align=1.0000
+2025-03-25 13:09:35,279 - INFO - Computing random projectors
+2025-03-25 13:09:35,279 - INFO - Computing random projectors for 640
+2025-03-25 13:12:34,819 - INFO - Random projector results: Sil=0.5002, Recon=408119.2108, Align=0.2517
+2025-03-25 13:12:34,945 - INFO - Saved to results/projectors/projectors_layer_4_P640.pt and results/projectors/metrics_layer_4_P640.npy, Memory: 1.21 GB
+2025-03-25 13:12:34,946 - INFO - Job completed, Memory: 1.15 GB
+Tâche 37 terminée : Couche 4, P = 640

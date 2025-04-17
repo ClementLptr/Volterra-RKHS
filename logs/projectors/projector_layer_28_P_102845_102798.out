@@ -1,0 +1,26 @@
+Démarrage de la tâche 28 : Couche 3, P = 768
+2025-03-25 12:52:02,793 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:52:02,793 - INFO - Model version: test
+2025-03-25 12:52:02,794 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:52:02,794 - INFO - Model version: test
+2025-03-25 12:52:02,845 - INFO - Starting job: Layer=3, P=768, Save Dir=results/projectors
+2025-03-25 12:52:02,846 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:52:03,473 - INFO - Number of train videos: 4289
+2025-03-25 12:52:03,640 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P768.pt
+2025-03-25 12:52:03,647 - INFO - Loaded projectors for Layer 2 from results/projectors/projectors_layer_2_P768.pt
+2025-03-25 12:52:03,738 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:52:03,738 - INFO - Starting projector computation for Layer 3, P=768
+2025-03-25 12:52:03,738 - INFO - Extracting patches for Layer 3
+2025-03-25 12:56:02,527 - INFO - Patches extracted: 6187 patches, Memory: 1.08 GB
+2025-03-25 12:56:02,527 - INFO - Patches extracted: 6187 patches, Memory: 1.08 GB
+2025-03-25 12:56:02,527 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:56:02,527 - INFO - Starting kernel k-means for 384 projectors with 6187 samples
+2025-03-25 12:56:03,271 - INFO - Nyström results: Sil=0.5022, Recon=159111.7812, Align=0.9984
+2025-03-25 12:56:03,272 - INFO - Starting RFF for 384 projectors with 6187 samples
+2025-03-25 12:56:03,600 - INFO - RFF results: Sil=0.4864, Recon=149874.6233, Align=1.0000
+2025-03-25 12:56:03,613 - INFO - Computing random projectors
+2025-03-25 12:56:03,613 - INFO - Computing random projectors for 768
+2025-03-25 12:56:06,060 - INFO - Random projector results: Sil=0.5089, Recon=588004.4961, Align=0.4370
+2025-03-25 12:56:06,114 - INFO - Saved to results/projectors/projectors_layer_3_P768.pt and results/projectors/metrics_layer_3_P768.npy, Memory: 1.14 GB
+2025-03-25 12:56:06,114 - INFO - Job completed, Memory: 1.11 GB
+Tâche 28 terminée : Couche 3, P = 768

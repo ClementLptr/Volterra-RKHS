@@ -1,0 +1,25 @@
+Démarrage de la tâche 15 : Couche 2, P = 384
+2025-03-25 12:34:06,790 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:34:06,790 - INFO - Model version: test
+2025-03-25 12:34:06,790 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:34:06,790 - INFO - Model version: test
+2025-03-25 12:34:06,827 - INFO - Starting job: Layer=2, P=384, Save Dir=results/projectors
+2025-03-25 12:34:06,827 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:34:08,241 - INFO - Number of train videos: 4289
+2025-03-25 12:34:08,509 - INFO - Loaded projectors for Layer 1 from results/projectors/projectors_layer_1_P384.pt
+2025-03-25 12:34:08,640 - INFO - Initial memory usage: 0.68 GB
+2025-03-25 12:34:08,640 - INFO - Starting projector computation for Layer 2, P=384
+2025-03-25 12:34:08,640 - INFO - Extracting patches for Layer 2
+2025-03-25 12:37:29,808 - INFO - Patches extracted: 6187 patches, Memory: 1.05 GB
+2025-03-25 12:37:29,808 - INFO - Patches extracted: 6187 patches, Memory: 1.05 GB
+2025-03-25 12:37:29,809 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:37:29,809 - INFO - Starting kernel k-means for 192 projectors with 6187 samples
+2025-03-25 12:37:32,677 - INFO - Nyström results: Sil=0.5440, Recon=39464.6367, Align=0.9950
+2025-03-25 12:37:32,678 - INFO - Starting RFF for 192 projectors with 6187 samples
+2025-03-25 12:37:34,289 - INFO - RFF results: Sil=0.5263, Recon=37518.9228, Align=1.0000
+2025-03-25 12:37:34,332 - INFO - Computing random projectors
+2025-03-25 12:37:34,332 - INFO - Computing random projectors for 384
+2025-03-25 12:37:56,738 - INFO - Random projector results: Sil=0.4727, Recon=146472.1195, Align=0.4460
+2025-03-25 12:37:56,862 - INFO - Saved to results/projectors/projectors_layer_2_P384.pt and results/projectors/metrics_layer_2_P384.npy, Memory: 1.12 GB
+2025-03-25 12:37:56,863 - INFO - Job completed, Memory: 1.10 GB
+Tâche 15 terminée : Couche 2, P = 384

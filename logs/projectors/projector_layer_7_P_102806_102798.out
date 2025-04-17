@@ -1,0 +1,26 @@
+Démarrage de la tâche 7 : Couche 1, P = 640
+2025-03-25 12:14:52,587 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:14:52,587 - INFO - Model version: test
+2025-03-25 12:14:52,587 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 12:14:52,587 - INFO - Model version: test
+2025-03-25 12:14:52,621 - INFO - Starting job: Layer=1, P=640, Save Dir=results/projectors
+2025-03-25 12:14:52,622 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 12:14:53,127 - INFO - Number of train videos: 4289
+2025-03-25 12:14:53,481 - INFO - Initial memory usage: 0.69 GB
+2025-03-25 12:14:53,481 - INFO - Starting projector computation for Layer 1, P=640
+2025-03-25 12:14:53,481 - INFO - Performing stratified sampling for 2000 samples across 51 classes
+2025-03-25 12:20:57,507 - INFO - Stratified sample complete: 1989 samples selected
+2025-03-25 12:20:57,510 - INFO - Extracting patches for Layer 1
+2025-03-25 12:22:28,410 - INFO - Patches extracted: 6250 patches, Memory: 0.95 GB
+2025-03-25 12:22:28,411 - INFO - Patches extracted: 6250 patches, Memory: 0.95 GB
+2025-03-25 12:22:28,411 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:22:28,411 - INFO - Starting kernel k-means for 320 projectors with 6250 samples
+2025-03-25 12:22:30,631 - INFO - Nyström results: Sil=0.0207, Recon=111205.2812, Align=0.9978
+2025-03-25 12:22:30,631 - INFO - Starting RFF for 320 projectors with 6250 samples
+2025-03-25 12:22:32,455 - INFO - RFF results: Sil=-0.0381, Recon=102015.8771, Align=1.0000
+2025-03-25 12:22:32,456 - INFO - Computing random projectors
+2025-03-25 12:22:32,456 - INFO - Computing random projectors for 640
+2025-03-25 12:22:33,887 - INFO - Random projector results: Sil=0.0203, Recon=407476.6109, Align=0.5506
+2025-03-25 12:22:33,928 - INFO - Saved to results/projectors/projectors_layer_1_P640.pt and results/projectors/metrics_layer_1_P640.npy, Memory: 0.97 GB
+2025-03-25 12:22:33,929 - INFO - Job completed, Memory: 0.97 GB
+Tâche 7 terminée : Couche 1, P = 640

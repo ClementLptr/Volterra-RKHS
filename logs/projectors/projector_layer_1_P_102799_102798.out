@@ -1,0 +1,26 @@
+Démarrage de la tâche 1 : Couche 1, P = 24
+2025-03-25 11:58:04,841 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 11:58:04,841 - INFO - Model version: test
+2025-03-25 11:58:04,841 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-25 11:58:04,841 - INFO - Model version: test
+2025-03-25 11:58:04,894 - INFO - Starting job: Layer=1, P=24, Save Dir=results/projectors
+2025-03-25 11:58:04,895 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-25 11:58:05,947 - INFO - Number of train videos: 4289
+2025-03-25 11:58:06,251 - INFO - Initial memory usage: 0.67 GB
+2025-03-25 11:58:06,251 - INFO - Starting projector computation for Layer 1, P=24
+2025-03-25 11:58:06,251 - INFO - Performing stratified sampling for 2000 samples across 51 classes
+2025-03-25 12:06:49,074 - INFO - Stratified sample complete: 1989 samples selected
+2025-03-25 12:06:49,076 - INFO - Extracting patches for Layer 1
+2025-03-25 12:08:25,790 - INFO - Patches extracted: 6250 patches, Memory: 1.01 GB
+2025-03-25 12:08:25,791 - INFO - Patches extracted: 6250 patches, Memory: 1.01 GB
+2025-03-25 12:08:25,791 - INFO - Computing Nyström + RFF projectors
+2025-03-25 12:08:25,791 - INFO - Starting kernel k-means for 12 projectors with 6250 samples
+2025-03-25 12:08:26,304 - INFO - Nyström results: Sil=0.2549, Recon=132.6507, Align=0.9980
+2025-03-25 12:08:26,305 - INFO - Starting RFF for 12 projectors with 6250 samples
+2025-03-25 12:08:26,463 - INFO - RFF results: Sil=0.0813, Recon=121.4827, Align=1.0000
+2025-03-25 12:08:26,464 - INFO - Computing random projectors
+2025-03-25 12:08:26,464 - INFO - Computing random projectors for 24
+2025-03-25 12:08:26,633 - INFO - Random projector results: Sil=0.1757, Recon=501.2597, Align=0.5890
+2025-03-25 12:08:26,654 - INFO - Saved to results/projectors/projectors_layer_1_P24.pt and results/projectors/metrics_layer_1_P24.npy, Memory: 1.03 GB
+2025-03-25 12:08:26,654 - INFO - Job completed, Memory: 1.03 GB
+Tâche 1 terminée : Couche 1, P = 24

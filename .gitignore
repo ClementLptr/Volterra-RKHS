@@ -1,0 +1,63 @@
+# Ignorer la base de données et les données brutes
+/data/
+/datasets/
+
+# Ignorer les checkpoints de modèles et artefacts générés
+/models/
+/checkpoints/
+
+# Ignorer l'environnement virtuel
+/.venv/
+/venv/
+/env/
+
+# Ignorer les fichiers et dossiers de cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorer les fichiers de logs
+# *.log
+# logs/
+
+# Ignorer les fichiers CSV de métriques d'entraînement
+*_training_metrics.csv
+*.csv  # Optionnel : exclut tous les CSV, à ajuster selon vos besoins
+
+# Ignorer les fichiers temporaires et de sauvegarde
+*.bak
+*.swp
+*~
+
+# Ignorer les fichiers générés par les IDE
+/.idea/  # JetBrains (PyCharm)
+/.vscode/  # Visual Studio Code
+*.sublime-project
+*.sublime-workspace
+
+# Ignorer les fichiers de configuration locaux ou sensibles
+*.env
+config/local_config.json  # Si vous avez des configs locales non versionnées
+secrets/
+
+# Ignorer les dépendances installées localement
+/site-packages/
+/dist/
+/build/
+/*.egg-info/
+
+# Ignorer les fichiers de profiling ou de debugging
+profile.*
+*.prof
+
+# Ignorer les fichiers spécifiques à macOS
+.DS_Store
+
+# Ignorer les fichiers spécifiques à Windows
+Thumbs.db
+ehthumbs.db
+
+# Exceptions possibles (à décommenter si nécessaire)
+# !specific_file.csv  # Pour inclure un fichier CSV spécifique malgré *.csv
+# !README.log  # Pour inclure un fichier de log spécifique

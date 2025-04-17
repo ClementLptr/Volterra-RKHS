@@ -1,0 +1,40 @@
+2025-03-27 13:45:18,183 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-27 13:45:18,183 - INFO - Model version: test
+2025-03-27 13:45:18,183 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-27 13:45:18,184 - INFO - Model version: test
+2025-03-27 13:45:18,242 - INFO - Logging initialized. Normal logs to .out, warnings/errors to .err
+2025-03-27 13:45:18,242 - INFO - Model version: test
+2025-03-27 13:45:18,249 - INFO - Using device: cuda:0
+2025-03-27 13:45:18,249 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-27 13:45:19,131 - INFO - Number of train videos: 4289
+2025-03-27 13:45:19,241 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-27 13:45:19,479 - INFO - Number of val videos: 1101
+2025-03-27 13:45:19,485 - INFO - Dataset: hmdb51, Root: ./data/HMDB51/videos, Output: ./data/HMDB51/preprocessed
+2025-03-27 13:45:20,006 - INFO - Number of test videos: 1376
+2025-03-27 13:45:20,169 - INFO - Loaded projectors for layer 1 from results/projectors/projectors_layer_1_P896.pt
+2025-03-27 13:45:20,173 - INFO - Loaded projectors for layer 2 from results/projectors/projectors_layer_2_P896.pt
+2025-03-27 13:45:20,177 - INFO - Loaded projectors for layer 3 from results/projectors/projectors_layer_3_P896.pt
+2025-03-27 13:45:20,186 - INFO - Loaded projectors for layer 4 from results/projectors/projectors_layer_4_P896.pt
+2025-03-27 13:45:20,200 - INFO - Loaded projectors for layer 5 from results/projectors/projectors_layer_5_P896.pt
+2025-03-27 13:45:20,237 - INFO - Model initialized with 896 projectors on cuda:0
+2025-03-27 13:45:22,117 - INFO - Total parameters: 3488259
+2025-03-27 13:47:18,748 - INFO - train Loss: 60.3892 Acc: 0.0256 Top-5 Acc: 0.1268
+2025-03-27 13:47:18,750 - INFO - train epoch 1/100 took 116.63s
+2025-03-27 13:47:50,883 - INFO - val Loss: 27.9083 Acc: 0.0145 Top-5 Acc: 0.1190
+2025-03-27 13:47:50,884 - INFO - val epoch 1/100 took 32.13s
+2025-03-27 13:47:50,897 - INFO - Epoch 1/100, Learning rate: 0.000280
+2025-03-27 13:49:48,585 - INFO - train Loss: 67.7685 Acc: 0.0280 Top-5 Acc: 0.1334
+2025-03-27 13:49:48,586 - INFO - train epoch 2/100 took 117.26s
+2025-03-27 13:50:18,625 - INFO - val Loss: 32.2265 Acc: 0.0182 Top-5 Acc: 0.1063
+2025-03-27 13:50:18,626 - INFO - val epoch 2/100 took 30.04s
+2025-03-27 13:50:18,636 - INFO - Epoch 2/100, Learning rate: 0.000460
+2025-03-27 13:52:10,769 - INFO - train Loss: 66.7823 Acc: 0.0340 Top-5 Acc: 0.1420
+2025-03-27 13:52:10,770 - INFO - train epoch 3/100 took 112.13s
+2025-03-27 13:52:41,650 - INFO - val Loss: 32.1505 Acc: 0.0154 Top-5 Acc: 0.0999
+2025-03-27 13:52:41,651 - INFO - val epoch 3/100 took 30.88s
+2025-03-27 13:52:41,658 - INFO - Epoch 3/100, Learning rate: 0.000640
+2025-03-27 13:54:36,064 - INFO - train Loss: 67.9129 Acc: 0.0256 Top-5 Acc: 0.1259
+2025-03-27 13:54:36,066 - INFO - train epoch 4/100 took 114.41s
+2025-03-27 13:55:08,120 - INFO - val Loss: 42.3712 Acc: 0.0136 Top-5 Acc: 0.1253
+2025-03-27 13:55:08,121 - INFO - val epoch 4/100 took 32.06s
+2025-03-27 13:55:08,132 - INFO - Epoch 4/100, Learning rate: 0.000820

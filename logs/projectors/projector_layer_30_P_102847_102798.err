@@ -1,0 +1,24 @@
+2025-03-25 12:54:19,409 - WARNING - Projectors for Layer 1 not found at results/projectors/projectors_layer_1_P1024.pt, using random initialization
+2025-03-25 12:54:19,577 - WARNING - Projectors for Layer 2 not found at results/projectors/projectors_layer_2_P1024.pt, using random initialization
+Traceback (most recent call last):
+  File "/usr/users/volterrakernel/lepretre_cle/volterra/compute_projectors.py", line 302, in <module>
+    main()
+  File "/usr/users/volterrakernel/lepretre_cle/volterra/compute_projectors.py", line 298, in main
+    projectors, results = compute_projectors_for_layer(args.layer, args.P, train_dataloader, model_temp, device, args.save_dir)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/users/volterrakernel/lepretre_cle/volterra/compute_projectors.py", line 234, in compute_projectors_for_layer
+    rand_proj, rand_sil, rand_recon, rand_align = compute_random_projectors(all_patches, P, target_shape)
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/users/volterrakernel/lepretre_cle/volterra/compute_projectors.py", line 171, in compute_random_projectors
+    silhouette = silhouette_score(data[:1000], MiniBatchKMeans(n_clusters=num_projectors, random_state=42).fit(data[:1000]).labels_)
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/users/volterrakernel/lepretre_cle/miniconda3/lib/python3.12/site-packages/sklearn/base.py", line 1389, in wrapper
+    return fit_method(estimator, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/users/volterrakernel/lepretre_cle/miniconda3/lib/python3.12/site-packages/sklearn/cluster/_kmeans.py", line 2068, in fit
+    self._check_params_vs_input(X)
+  File "/usr/users/volterrakernel/lepretre_cle/miniconda3/lib/python3.12/site-packages/sklearn/cluster/_kmeans.py", line 1909, in _check_params_vs_input
+    super()._check_params_vs_input(X, default_n_init=3)
+  File "/usr/users/volterrakernel/lepretre_cle/miniconda3/lib/python3.12/site-packages/sklearn/cluster/_kmeans.py", line 871, in _check_params_vs_input
+    raise ValueError(
+ValueError: n_samples=1000 should be >= n_clusters=1024.
