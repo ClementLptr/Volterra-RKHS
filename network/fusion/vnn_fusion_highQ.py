@@ -1,11 +1,11 @@
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
 from config.logger import setup_logger
-from network.base.base_vnn import BaseVNN
-from torch import nn
 
 logger = setup_logger()
 
-class VNN_F(BaseVNN):
+class VNN_F(nn.Module):
     def __init__(self, num_classes, num_ch=3, pretrained=False):
         """
         Initialize the VNN_F model.
@@ -42,26 +42,11 @@ class VNN_F(BaseVNN):
         self.pool1 = nn.MaxPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2))
         self.bn21 = nn.BatchNorm3d(self.nch_out1)
 
-        # Third Layer
-        # self.conv11_red = nn.Conv3d(self.nch_out1, self.nch_out1_red, kernel_size=(1, 1, 1), padding=(0, 0, 0))
-        # self.bn11_red = nn.BatchNorm3d(self.nch_out1_red)
-        # self.conv21_red = nn.Conv3d(self.nch_out1, 2*self.Q1_red*self.nch_out1_red, kernel_size=(1, 1, 1), padding=(0, 0, 0))
-        # self.bn21_red = nn.BatchNorm3d(self.nch_out1_red)
-
-        # # Fourth Layer
-        # self.conv12 = nn.Conv3d(self.nch_out1_red, self.nch_out2, kernel_size=(3, 3, 3), padding=(1, 1, 1))
-        # self.bn12 = nn.BatchNorm3d(self.nch_out2)
-        # self.conv22 = nn.Conv3d(self.nch_out1_red, 2*self.Q2*self.nch_out2, kernel_size=(3, 3, 3), padding=(1, 1, 1))
-        # self.pool2 = nn.MaxPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2))
-        # self.bn22 = nn.BatchNorm3d(self.nch_out2)
-        
         self.fc8 = nn.Linear(200704, num_classes)
         self.dropout = nn.Dropout(p=0.5)
 
         # Initialize weights
         self._initialize_weights()
-
-    
 
     def _initialize_weights(self):
         """
@@ -73,7 +58,30 @@ class VNN_F(BaseVNN):
             elif isinstance(m, nn.BatchNorm3d):
                 m.weight.data.fill_(1)
                 m.bias.data.zero_()
+
+    def _volterra_kernel_approximation(self, tensor1, tensor2, num_terms, num_channels_out):
+        """
+        Approximates the Volterra kernel by combining pairwise multiplicative interactions 
+        between two input tensors.
+
+        Args:
+            tensor1 (torch.Tensor): First input tensor, shape (batch_size, channels, depth, height, width).
+            tensor2 (torch.Tensor): Second input tensor, shape (batch_size, 2*num_terms*num_channels_out, depth, height, width).
+            num_terms (int): Number of multiplicative terms in the kernel approximation.
+            num_channels_out (int): Number of output channels for the final result.
+
+        Returns:
+            torch.Tensor: Approximated tensor, shape (batch_size, num_channels_out, depth, height, width).
+        """
+        tensor_mul = torch.mul(tensor2[:, 0:num_terms * num_channels_out, :, :, :], 
+                              tensor2[:, num_terms * num_channels_out:2 * num_terms * num_channels_out, :, :, :])
+        
+        tensor_add = torch.zeros_like(tensor1)
+        
+        for q in range(num_terms):
+            tensor_add = torch.add(tensor_add, tensor_mul[:, (q * num_channels_out):((q * num_channels_out) + num_channels_out), :, :, :])
                 
+        return tensor_add
 
     def forward(self, x, activation=False):
         """
@@ -102,6 +110,7 @@ class VNN_F(BaseVNN):
 
         # Layer 2
         x11 = self.conv11(x)
+        x11 = self.bn11(x11)
         x21 = self.conv21(x)
         x21_add = self._volterra_kernel_approximation(x11, x21, self.Q1, self.nch_out1)
         x21_add = self.bn21(x21_add)
@@ -113,32 +122,6 @@ class VNN_F(BaseVNN):
 
         x = self.pool1(torch.add(x11, x21_add))
 
-        # # Layer 3
-        # x11_red = self.conv11_red(x)
-        # x21_red = self.conv21_red(x)
-        # x21_red_add = self._volterra_kernel_approximation(x11_red, x21_red, self.Q1_red, self.nch_out1_red)
-        # x21_red_add = self.bn21_red(x21_red_add)
-        
-        # # Debug prints to check shapes
-        # logger.debug(f"x11_red shape: {x11_red.shape}")
-        # logger.debug(f"x21_red shape: {x21_red.shape}")
-        # logger.debug(f"x21_red_add shape: {x21_red_add.shape}")
-        
-        # x = torch.add(x11_red, x21_red_add)
-
-        # # Layer 4
-        # x12 = self.conv12(x)
-        # x22 = self.conv22(x)
-        # x22_add = self._volterra_kernel_approximation(x12, x22, self.Q2, self.nch_out2)
-        # x22_add = self.bn22(x22_add)
-        
-        # # Debug prints to check shapes
-        # logger.debug(f"x12 shape: {x12.shape}")
-        # logger.debug(f"x22 shape: {x22.shape}")
-        # logger.debug(f"x22_add shape: {x22_add.shape}")
-        
-        # x = self.pool2(torch.add(x12, x22_add))
-
         # Flatten and pass through fully connected layer
         x = x.reshape(x.size(0), -1)
         x = self.dropout(x)
@@ -149,9 +132,9 @@ class VNN_F(BaseVNN):
 
 def get_1x_lr_params(model):
     """
-    This generator returns all the parameters for conv and two fc layers of the net.
+    This generator returns all the parameters for conv and batch norm layers of the net.
     """
-    b = [ model.conv10, model.bn10, model.conv20, model.bn20, model.conv11, model.bn11, model.conv21, model.bn21] #, model.conv11_red, model.bn11_red, model.conv21_red, model.bn21_red, model.conv11, model.bn12, model.conv22, model.bn22] # model.conv10, model.bn10, model.conv20, model.bn20, 
+    b = [model.conv10, model.bn10, model.conv20, model.bn20, model.conv11, model.bn11, model.conv21, model.bn21]
     for i in range(len(b)):
         for k in b[i].parameters():
             if k.requires_grad:

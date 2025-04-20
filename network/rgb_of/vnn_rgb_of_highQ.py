@@ -1,31 +1,41 @@
 import torch
 import torch.nn as nn
 from config.logger import setup_logger
-from network.base.base_vnn import BaseVNN
 
 logger = setup_logger()
 
-class VNN(BaseVNN):
+class VNN(nn.Module):
     def __init__(self, num_classes, num_ch=3, pretrained=False):
+        """
+        Initialize the VNN model.
+
+        Args:
+            num_classes (int): Number of output classes for the classification task.
+            num_ch (int, optional): Number of input channels (default is 3).
+            pretrained (bool, optional): Whether to use pretrained weights (default is False).
+        """
         super(VNN, self).__init__()
-        self.Q1 = 7
+
+        # Define constants for output channels
+        self.Q1 = 2
         self.nch_out1_5 = 8
         self.nch_out1_3 = 8
         self.nch_out1_1 = 8
         self.sum_chans = self.nch_out1_5 + self.nch_out1_3 + self.nch_out1_1
 
-        self.Q2 = 7
+        self.Q2 = 2
         self.nch_out2 = 32
 
-        self.Q3 = 7
+        self.Q3 = 2
         self.nch_out3 = 64
 
-        self.Q4 = 7
+        self.Q4 = 2
         self.nch_out4 = 96
 
-        self.Q5 = 7
+        self.Q5 = 2
         self.nch_out5 = 256
 
+        # Define Layers
         self.conv11_5 = nn.Conv3d(num_ch, self.nch_out1_5, kernel_size=3, padding=1)
         self.conv11_3 = nn.Conv3d(num_ch, self.nch_out1_3, kernel_size=3, padding=1)
         self.conv11_1 = nn.Conv3d(num_ch, self.nch_out1_1, kernel_size=1)
@@ -70,7 +80,40 @@ class VNN(BaseVNN):
 
         self.__init_weight()
 
+    def _volterra_kernel_approximation(self, tensor1, tensor2, num_terms, num_channels_out):
+        """
+        Approximates the Volterra kernel by combining pairwise multiplicative interactions 
+        between two input tensors.
+
+        Args:
+            tensor1 (torch.Tensor): First input tensor, shape (batch_size, channels, depth, height, width).
+            tensor2 (torch.Tensor): Second input tensor, shape (batch_size, 2*num_terms*num_channels_out, depth, height, width).
+            num_terms (int): Number of multiplicative terms in the kernel approximation.
+            num_channels_out (int): Number of output channels for the final result.
+
+        Returns:
+            torch.Tensor: Approximated tensor, shape (batch_size, num_channels_out, depth, height, width).
+        """
+        tensor_mul = torch.mul(tensor2[:, 0:num_terms * num_channels_out, :, :, :], 
+                              tensor2[:, num_terms * num_channels_out:2 * num_terms * num_channels_out, :, :, :])
+        
+        tensor_add = torch.zeros_like(tensor1)
+        
+        for q in range(num_terms):
+            tensor_add = torch.add(tensor_add, tensor_mul[:, (q * num_channels_out):((q * num_channels_out) + num_channels_out), :, :, :])
+                
+        return tensor_add
+
     def forward(self, x):
+        """
+        Forward pass through the network.
+
+        Args:
+            x (Tensor): The input tensor.
+
+        Returns:
+            Tensor: The output logits.
+        """
         x = self._forward_features(x)
         x = torch.flatten(x, 1)
         x = self.dropout(self.fc1(x))
@@ -79,6 +122,15 @@ class VNN(BaseVNN):
         return x
 
     def _forward_features(self, x):
+        """
+        Process the input through the feature extraction layers.
+
+        Args:
+            x (Tensor): The input tensor.
+
+        Returns:
+            Tensor: The output feature tensor.
+        """
         x11_5 = self.conv11_5(x)
         x11_3 = self.conv11_3(x)
         x11_1 = self.conv11_1(x)
@@ -130,6 +182,9 @@ class VNN(BaseVNN):
         return x
 
     def __init_weight(self):
+        """
+        Initialize the weights of the convolutional, batch norm, and linear layers.
+        """
         for m in self.modules():
             if isinstance(m, nn.Conv3d):
                 nn.init.kaiming_normal_(m.weight, mode='fan_out', nonlinearity='relu')
@@ -142,16 +197,18 @@ class VNN(BaseVNN):
 
 def get_1x_lr_params(model):
     """
-    This generator returns all the parameters for conv and two fc layers of the net.
+    This generator returns all the parameters for conv and batch norm layers of the net.
     """
-    b = [model.conv11_5, model.conv11_3, model.conv11_1, model.bn11, model.conv21_5, model.conv21_3, model.conv21_1, model.bn21, model.conv12, model.bn12, model.conv22, model.bn22] #, model.conv13, model.bn13, model.conv23, model.bn23, model.conv14, model.bn14, model.conv24, model.bn24, model.fc6, model.fc7]
+    b = [model.conv11_5, model.conv11_3, model.conv11_1, model.bn11, model.conv21_5, model.conv21_3, model.conv21_1, model.bn21, 
+         model.conv12, model.bn12, model.conv22, model.bn22, model.conv13, model.bn13, model.conv23, model.bn23, 
+         model.conv14, model.bn14, model.conv24, model.bn24, model.conv15, model.bn15, model.conv25, model.bn25]
     for i in range(len(b)):
         for k in b[i].parameters():
             if k.requires_grad:
-                yield k  
+                yield k
 
 if __name__ == "__main__":
     inputs = torch.rand(1, 3, 16, 112, 112)
     net = VNN(num_classes=51, pretrained=False)
     outputs = net.forward(inputs)
-    print(outputs.size())  # Should output torch.Size([1, 51])
+    print(outputs.size())

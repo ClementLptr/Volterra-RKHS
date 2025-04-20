@@ -11,7 +11,7 @@ from config.logger import setup_logger, load_config
 from config.dataloaders.dataset import VideoDataset
 from network.rgb_of import vnn_rgb_of_highQ
 
-from torch.cuda.amp import autocast, GradScaler  
+from torch.amp import autocast, GradScaler  
 from torch.profiler import profile, record_function, ProfilerActivity
 
 # Set environment variable for CUDA allocation
@@ -91,7 +91,7 @@ def train_epoch(phase, model_RGB, trainval_loaders, optimizer, criterion, device
 
                 optimizer.zero_grad()
 
-                with autocast(enabled=(phase == 'train')):
+                with autocast('cuda', enabled=(phase == 'train')):
                     outputs = model_RGB(inputs)
                     probs = nn.Softmax(dim=1)(outputs)
                     preds = torch.max(probs, 1)[1]
@@ -155,7 +155,7 @@ def train_model(dataset='hmdb51', save_dir=None, num_classes=51, lr=1e-4,
     
     modelName = 'Basic_rgb_vnn_Five_Layers'
     saveName = f"{modelName}-{dataset}"
-    scaler = GradScaler()
+    scaler = GradScaler('cuda')
     config = load_config('config/config.json')
     model_version = config.get('model_version', 'default_version')
     csv_path = os.path.join(save_dir, f"{saveName}_training_metrics.csv")
