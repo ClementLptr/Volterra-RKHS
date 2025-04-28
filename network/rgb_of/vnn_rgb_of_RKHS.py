@@ -32,10 +32,10 @@ class RKHS_VNN(nn.Module):
         # Configuration des 5 couches
         self.architecture_config = {
             'layer1': {'out_channels': 24, 'kernel_size': 3, 'stride': 1},
-            'layer2': {'out_channels': 48, 'kernel_size': 3, 'stride': 1},
-            'layer3': {'out_channels': 96, 'kernel_size': 3, 'stride': 1},
-            'layer4': {'out_channels': 192, 'kernel_size': 3, 'stride': 1},
-            'layer5': {'out_channels': 384, 'kernel_size': 3, 'stride': 1},
+            'layer2': {'out_channels': 32, 'kernel_size': 3, 'stride': 1},
+            'layer3': {'out_channels': 64, 'kernel_size': 3, 'stride': 1},
+            'layer4': {'out_channels': 96, 'kernel_size': 3, 'stride': 1},
+            'layer5': {'out_channels': 256, 'kernel_size': 3, 'stride': 1},
         }
         
         self.pool = nn.MaxPool3d(kernel_size=(1, 2, 2), stride=(1, 2, 2))
@@ -68,7 +68,6 @@ class RKHS_VNN(nn.Module):
     def _initialize_layers(self) -> None:
         self.alpha_params = nn.ParameterDict()
         self.bn_layers = nn.ModuleDict()
-        self.dropout_layers = nn.ModuleDict()
 
         for i in range(1, len(self.architecture_config) + 1):
             out_channels = self.architecture_config[f'layer{i}']['out_channels']
@@ -77,8 +76,18 @@ class RKHS_VNN(nn.Module):
                 nn.init.kaiming_normal_(torch.empty(alpha_shape), mode='fan_out', nonlinearity='relu')
             )
             self.bn_layers[f'bn_{i}'] = nn.BatchNorm3d(out_channels)
-            # self.dropout_layers[f'dropout_{i}'] = nn.Dropout3d(p=self.dropout_rate)
-
+    def update_projectors(self, projectors: torch.Tensor, layer: int) -> None:
+        """
+        Update the projectors for a specific layer.
+        :param projectors: The new projectors to set.
+        :param layer: The layer index to update.
+        """
+        if layer in self.pre_determined_projectors:
+            self.pre_determined_projectors[layer] = projectors
+            logger.debug(f"Updated projectors for layer {layer}.")
+        else:
+            logger.warning(f"Layer {layer} does not exist in pre_determined_projectors.")
+        
     def _poly_kernel(self, x: torch.Tensor, projectors: torch.Tensor, degree: int, layer: int) -> torch.Tensor:
         alpha = self.alpha_params[f'alpha_{layer}']
         x_padded = torch.nn.functional.pad(x, (1, 1, 1, 1, 1, 1), mode='constant', value=0)
@@ -98,7 +107,6 @@ class RKHS_VNN(nn.Module):
             x = x.permute(0, 4, 1, 2, 3)
             x = self.pool(x)
             x = self.bn_layers[f'bn_{layer}'](x)
-            # x = self.dropout_layers[f'dropout_{layer}'](x)
             logger.debug(f"Shape after layer {layer}: {x.shape}")
         x = x.reshape(x.size(0), -1)
         x = self.classifier(x)
@@ -112,7 +120,6 @@ class RKHS_VNN(nn.Module):
             x = x.permute(0, 4, 1, 2, 3)
             x = self.pool(x)
             x = self.bn_layers[f'bn_{layer}'](x)
-            x = self.dropout_layers[f'dropout_{layer}'](x)
         return x
 
     def _initialize_weights(self) -> None:

@@ -71,7 +71,7 @@ class VNN(nn.Module):
         self.conv25 = nn.Conv3d(self.nch_out4, 2 * self.Q5 * self.nch_out5, kernel_size=3, padding=1)
         self.pool5 = nn.MaxPool3d(kernel_size=2, stride=2)
         self.bn25 = nn.BatchNorm3d(self.nch_out5)
-
+        
         self.fc1 = nn.Linear(12544, 512)
         self.fc2 = nn.Linear(512, 128)
         self.fc3 = nn.Linear(128, num_classes)
